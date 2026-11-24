@@ -1,0 +1,28 @@
+import { ROUTES, type RoutePath } from '@routes/paths';
+
+export interface AdminMenuItem {
+  label: string;
+  /** 아직 옮기지 않은 화면은 path가 없다 → 메뉴에서 비활성으로 보인다 */
+  path?: RoutePath;
+}
+
+/**
+ * 사이드바 메뉴. 순서와 이름은 서버 SSR 대시보드(templates/admin/dashboard.html)의 탭을 따른다.
+ * 화면을 옮길 때 ROUTES에 경로를 추가하고 여기 path를 채운다 (docs/migration-checklist.md).
+ */
+export const ADMIN_MENU: AdminMenuItem[] = [
+  { label: '홈', path: ROUTES.HOME },
+  { label: '가구 관리' },
+  { label: '가구 타입 관리' },
+  { label: '태그 관리' },
+  { label: '무드보드 관리' },
+  { label: 'RAW 상품 관리' },
+  { label: '랜딩 관리' },
+  { label: '배너 관리' },
+  { label: '스타일로 시작하기 관리' },
+  { label: '도면 관리' },
+  { label: '회원 크레딧 추가' },
+  { label: '가격비교 검색' },
+  { label: '프리셋 관리' },
+  { label: 'Gemini 검색어 검증' },
+];
