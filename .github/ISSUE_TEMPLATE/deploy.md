@@ -2,7 +2,6 @@
 name: '🌐 배포 관련'
 about: '배포 관련 이슈를 생성할 때 사용하는 템플릿입니다'
 title: '[deploy] '
-labels: '🌐 Deploy'
 ---
 
 ### 📄 Description

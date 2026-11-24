@@ -1,7 +1,6 @@
 name: '🎨 스타일 관련'
 description: '스타일 및 UI/UX 관련 이슈를 생성할 때 사용하는 템플릿입니다'
 title: '[style] '
-labels: '🎨 Style'
 body:
   - type: textarea
     attributes:

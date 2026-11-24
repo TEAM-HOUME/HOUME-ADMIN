@@ -2,7 +2,6 @@
 name: '🔧 버그 수정'
 about: '버그 수정 관련 이슈를 생성할 때 사용하는 템플릿입니다'
 title: '[fix] '
-labels: '🔧 Fix'
 ---
 
 ### 📄 Description

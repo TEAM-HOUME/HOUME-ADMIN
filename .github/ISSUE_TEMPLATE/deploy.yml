@@ -1,7 +1,6 @@
 name: '🌐 배포 관련'
 description: '배포와 관련된 이슈를 생성할 때 사용하는 템플릿입니다'
 title: '[deploy] '
-labels: '🌐 Deploy'
 body:
   - type: textarea
     attributes:

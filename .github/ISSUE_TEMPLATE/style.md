@@ -2,7 +2,6 @@
 name: '🎨 스타일 관련'
 about: '코드 스타일 관련 이슈를 생성할 때 사용하는 템플릿입니다'
 title: '[style] '
-labels: '🎨 Style'
 ---
 
 ### 📄 Description

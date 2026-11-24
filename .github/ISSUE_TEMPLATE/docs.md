@@ -2,7 +2,6 @@
 name: '📄 문서 작성 및 수정'
 about: '문서 작성 및 수정 관련 이슈를 생성할 때 사용하는 템플릿입니다'
 title: '[docs] '
-labels: '📄 Docs'
 ---
 
 ### 📄 Description

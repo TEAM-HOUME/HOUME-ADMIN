@@ -2,7 +2,6 @@
 name: '💫 기능 개발'
 about: '새로운 기능 개발 관련 이슈를 생성할 때 사용하는 템플릿입니다'
 title: '[feat] '
-labels: '💫 Feature'
 ---
 
 ### 📄 Description

@@ -2,7 +2,6 @@
 name: '⚙️ 개발 환경 세팅'
 about: '개발 환경 설정 관련 이슈를 생성할 때 사용하는 템플릿입니다'
 title: '[chore] '
-labels: '⚙️ Setting'
 ---
 
 ### 📄 Description
