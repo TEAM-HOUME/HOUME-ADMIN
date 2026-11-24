@@ -13,4 +13,8 @@ export const queryKeys = {
     rawProductSearch: (keyword: string, size: number) =>
       [...queryKeys.banner.all, 'rawProductSearch', keyword, size] as const,
   },
+  landing: {
+    all: ['landing'] as const,
+    list: () => [...queryKeys.landing.all, 'list'] as const,
+  },
 } as const;

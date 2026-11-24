@@ -17,7 +17,7 @@ export const ADMIN_MENU: AdminMenuItem[] = [
   { label: '태그 관리' },
   { label: '무드보드 관리' },
   { label: 'RAW 상품 관리' },
-  { label: '랜딩 관리' },
+  { label: '랜딩 관리', path: ROUTES.LANDING },
   { label: '배너 관리', path: ROUTES.BANNER },
   { label: '스타일로 시작하기 관리' },
   { label: '도면 관리' },
