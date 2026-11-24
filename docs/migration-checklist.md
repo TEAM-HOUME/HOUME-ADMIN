@@ -66,11 +66,11 @@ HOUME-SERVER의 SSR 어드민을 이 레포로 **전부** 옮기기 위한 체�
 - [ ] 색상 옵션 — `GET /api/v1/admin/curation-raw-products/color-options`
 - [ ] 가구 매핑 추가 · 교체 · 삭제 — `POST .../{id}/furniture-tags`, `PATCH` · `DELETE .../{id}/furniture-tags/{mappingId}`
 
-### 6. 랜딩 관리
+### 6. 랜딩 관리 — ✅ 완료 (`/landings`)
 
-- [ ] 목록 · 상세 — `GET /api/v1/admin/landings`, `GET .../{landingId}`
-- [ ] 등록 · 수정 · 삭제 — `POST /api/v1/admin/landings`, `PATCH` · `DELETE .../{landingId}`
-- [ ] 이미지 업로드 (공통 방식) — `POST /api/v1/admin/landings/image-upload-url`
+- [x] 목록 — `GET /api/v1/admin/landings` (수정 폼은 목록 데이터로 채움. 상세 `GET .../{landingId}`는 쓰지 않음)
+- [x] 등록 · 수정 · 삭제 — `POST /api/v1/admin/landings`, `PATCH` · `DELETE .../{landingId}`
+- [x] 이미지 업로드 (공통 방식) — `POST /api/v1/admin/landings/image-upload-url`
 
 ### 7. 배너 관리 — ✅ 완료 (`/banners`)
 

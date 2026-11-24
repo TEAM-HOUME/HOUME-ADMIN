@@ -10,4 +10,9 @@ export const API_ENDPOINT = {
     IMAGE_UPLOAD_URL: '/api/v1/admin/banners/image-upload-url',
     RAW_PRODUCT_SEARCH: '/api/v1/admin/banners/raw-products/search',
   },
+  LANDING: {
+    LIST: '/api/v1/admin/landings',
+    DETAIL: (landingId: number) => `/api/v1/admin/landings/${landingId}`,
+    IMAGE_UPLOAD_URL: '/api/v1/admin/landings/image-upload-url',
+  },
 } as const;

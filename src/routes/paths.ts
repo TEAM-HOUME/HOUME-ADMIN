@@ -4,6 +4,7 @@ export const ROUTES = {
   HOME: '/',
   LOGIN: '/login',
   BANNER: '/banners',
+  LANDING: '/landings',
 } as const;
 
 export type RoutePath = (typeof ROUTES)[keyof typeof ROUTES];
