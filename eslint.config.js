@@ -34,6 +34,7 @@ const PAGE_DIRS = [
   'login',
   'notFound',
   'style',
+  'tag',
 ];
 
 /**

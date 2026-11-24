@@ -46,10 +46,11 @@ HOUME-SERVER의 SSR 어드민을 이 레포로 **전부** 옮기기 위한 체�
 - [ ] 타입별 하위 가구 — `GET /api/v1/admin/furniture/types/{furnitureTypeId}/furnitures`
 - [ ] 타입별 furniture_tag — `GET /api/v1/admin/furniture/types/{furnitureTypeId}/tags`
 
-### 3. 태그 관리 (스타일 태그)
+### 3. 태그 관리 (스타일 태그) — ✅ 완료 (`/tags`)
 
-- [ ] 목록 — `GET /api/v1/admin/tags`
-- [ ] 생성 · 수정 · 삭제 — `POST` · `PATCH` · `DELETE /api/v1/admin/tag`
+- [x] 목록 — `GET /api/v1/admin/tags`
+- [x] 생성 · 수정 · 삭제 — `POST` · `PATCH` · `DELETE /api/v1/admin/tag`
+- SSR과 다른 점: 목록의 '수정'으로 ID · 현재 값을 채우고 바뀐 항목만 보낸다 (ID 직접 입력 방식도 유지)
 
 ### 4. 무드보드 관리
 

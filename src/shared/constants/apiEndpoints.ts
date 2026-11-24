@@ -26,6 +26,11 @@ export const API_ENDPOINT = {
     IMAGE_UPLOAD_URL: '/api/v1/admin/styles/image-upload-url',
     RAW_PRODUCT_SEARCH: '/api/v1/admin/styles/raw-products/search',
   },
+  TAG: {
+    LIST: '/api/v1/admin/tags',
+    /** 생성(POST) · 수정(PATCH) · 삭제(DELETE, body에 tagId) 공용 경로 */
+    ITEM: '/api/v1/admin/tag',
+  },
   MEMBER: {
     /** 이메일 완전일치 또는 닉네임 부분검색 (?keyword=) */
     SEARCH: '/api/v1/admin/members',
