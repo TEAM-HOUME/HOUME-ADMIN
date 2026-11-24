@@ -39,12 +39,14 @@ export const imageCard = style({
   padding: '1.6rem',
 });
 
+// 높이만 고정하고 너비는 사진 비율을 따른다 (최대 16rem, 넘으면 비율 유지하며 줄어듦)
 export const image = style({
+  display: 'block',
   borderRadius: '0.8rem',
-  backgroundColor: colorVars.color.fill.weak,
-  objectFit: 'contain',
-  width: '16rem',
-  height: '12rem',
+  width: 'auto',
+  maxWidth: '16rem',
+  height: 'auto',
+  maxHeight: '12rem',
 });
 
 export const imageInfo = style({

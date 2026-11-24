@@ -36,11 +36,11 @@ export const galleryItem = style({
   gap: '0.4rem',
 });
 
+// 높이만 고정하고 너비는 사진 비율을 따른다 → 잘림·여백 없이 사진에 딱 맞는다
 export const galleryImage = style({
+  display: 'block',
   borderRadius: '0.8rem',
-  backgroundColor: colorVars.color.fill.weak,
-  objectFit: 'contain',
-  width: '14rem',
+  width: 'auto',
   height: '10rem',
 });
 
