@@ -6,6 +6,7 @@ import HomePage from '@pages/home/HomePage';
 import LandingPage from '@pages/landing/LandingPage';
 import LoginPage from '@pages/login/LoginPage';
 import NotFoundPage from '@pages/notFound/NotFoundPage';
+import StylePage from '@pages/style/StylePage';
 
 import AdminLayout from '@routes/AdminLayout';
 import { ROUTES } from '@routes/paths';
@@ -23,6 +24,7 @@ export const router = createBrowserRouter([
           { path: ROUTES.BANNER, element: <BannerPage /> },
           { path: ROUTES.LANDING, element: <LandingPage /> },
           { path: ROUTES.FLOOR_PLAN, element: <FloorPlanPage /> },
+          { path: ROUTES.STYLE, element: <StylePage /> },
         ],
       },
     ],

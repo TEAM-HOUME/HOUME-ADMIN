@@ -1,24 +1,22 @@
+import type { RawProduct } from '@shared/types/rawProduct';
+
 import type {
   AdminBannerCreateRequest,
-  AdminBannerMappedRawProductResponse,
   AdminBannerResponse,
   AdminBannerStyleAnswerChipRequest,
 } from '@apis/__generated__/data-contracts';
 
+import { hasRawProductId } from '@utils/hasRawProductId';
+
 /** 서버 기준 답변 칩 최대 개수 (`styleAnswerChips` maxItems 4, order 1~4) */
 export const BANNER_CHIP_MAX_COUNT = 4;
-
-/** 검색 결과·선택된 RAW 상품. 선택할 때는 id가 반드시 있어야 한다 */
-export type BannerRawProduct = AdminBannerMappedRawProductResponse & {
-  id: number;
-};
 
 export interface BannerChipFormValue {
   /** input 값 그대로 둔다. 숫자 검증은 제출할 때 한다 */
   order: string;
   label: string;
   selectedPrompt: string;
-  rawProduct: BannerRawProduct | null;
+  rawProduct: RawProduct | null;
 }
 
 export interface BannerFormValues {
@@ -28,7 +26,7 @@ export interface BannerFormValues {
   styleQuestion: string;
   stylePrompt: string;
   chips: BannerChipFormValue[];
-  mappedRawProducts: BannerRawProduct[];
+  mappedRawProducts: RawProduct[];
 }
 
 const createEmptyChip = (index: number): BannerChipFormValue => ({
@@ -49,10 +47,6 @@ export const createEmptyBannerForm = (): BannerFormValues => ({
   ),
   mappedRawProducts: [],
 });
-
-export const hasRawProductId = (
-  product: AdminBannerMappedRawProductResponse
-): product is BannerRawProduct => product.id !== undefined;
 
 /** 목록의 배너를 수정 폼 값으로 바꾼다 (SSR populateBannerForm과 같은 규칙) */
 export const bannerToFormValues = (

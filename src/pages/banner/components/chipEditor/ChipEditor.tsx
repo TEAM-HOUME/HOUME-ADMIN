@@ -1,3 +1,7 @@
+import RawProductSearch from '@components/rawProductSearch/RawProductSearch';
+
+import { API_ENDPOINT } from '@constants/apiEndpoints';
+
 import * as ui from '@styles/adminUi.css';
 
 import * as styles from './ChipEditor.css';
@@ -5,7 +9,6 @@ import {
   BANNER_CHIP_MAX_COUNT,
   type BannerChipFormValue,
 } from '../../utils/bannerForm';
-import RawProductSearch from '../rawProductSearch/RawProductSearch';
 
 interface ChipEditorProps {
   index: number;
@@ -54,6 +57,7 @@ function ChipEditor({ index, value, onChange }: ChipEditorProps) {
       </div>
       <RawProductSearch
         label="연결 RAW 상품 검색"
+        searchEndpoint={API_ENDPOINT.BANNER.RAW_PRODUCT_SEARCH}
         size={8}
         closeOnSelect
         selectedIds={value.rawProduct ? [value.rawProduct.id] : []}

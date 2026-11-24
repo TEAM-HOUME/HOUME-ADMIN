@@ -79,19 +79,19 @@ HOUME-SERVER의 SSR 어드민을 이 레포로 **전부** 옮기기 위한 체�
 - [x] 이미지 업로드 (공통 방식) — `POST /api/v1/admin/banners/image-upload-url`
 - [x] 스타일 답변 칩, 배너에 매핑된 가구 (RAW 상품 검색) — `GET /api/v1/admin/banners/raw-products/search`
 
-### 8. 스타일로 시작하기 관리
+### 8. 스타일로 시작하기 관리 — ✅ 완료 (`/styles`)
 
-- [ ] 목록 · 상세 — `GET /api/v1/admin/styles`, `GET .../{styleId}`
-- [ ] 등록 · 수정 · 삭제 — `POST /api/v1/admin/styles`, `PATCH` · `DELETE .../{styleId}`
-- [ ] 이미지 업로드 (공통 방식) — `POST /api/v1/admin/styles/image-upload-url`
-- [ ] 스타일에 매핑된 가구 (RAW 상품 검색) — `GET /api/v1/admin/styles/raw-products/search`
+- [x] 목록 — `GET /api/v1/admin/styles` (수정 폼은 목록 데이터로 채움. 상세 `GET .../{styleId}`는 쓰지 않음)
+- [x] 등록 · 수정 · 삭제 — `POST /api/v1/admin/styles`, `PATCH` · `DELETE .../{styleId}`
+- [x] 이미지 업로드 (공통 방식) — `POST /api/v1/admin/styles/image-upload-url`
+- [x] 스타일에 매핑된 가구 (RAW 상품 검색) — `GET /api/v1/admin/styles/raw-products/search`
 
 ### 9. 도면 관리 — ✅ 완료 (`/floor-plans`)
 
 - [x] 목록 — `GET /api/v1/admin/floor-plans` (수정 폼은 목록 데이터로 채움. 상세 `GET .../{floorPlanId}`는 쓰지 않음)
 - [x] 등록 · 수정 · 삭제 — `POST /api/v1/admin/floor-plans`, `PATCH` · `DELETE .../{floorPlanId}`
 - [x] 이미지 업로드 (공통 방식, 여러 장 · view · 순서) — `POST /api/v1/admin/floor-plans/image-upload-url`
-- SSR의 단일 필드 fallback(`form`·`structure`·`equilibrium`)은 옮기지 않음 — 현재 Swagger 응답에는 배열 필드만 있다
+- SSR의 단일 필드 fallback(`form`·`structure`·`equilibrium`)은 옮기지 않음 — 서버 `AdminFloorPlanServiceImpl.toResponse()`가 JSON 다중 매핑이 비어 있으면 단일 컬럼 값으로 배열을 채워 내려준다 (이미지도 같은 방식). 응답에 단일 필드는 없다
 
 ### 10. 회원 크레딧 추가
 
