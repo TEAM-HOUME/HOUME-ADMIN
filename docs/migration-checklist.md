@@ -86,11 +86,12 @@ HOUME-SERVER의 SSR 어드민을 이 레포로 **전부** 옮기기 위한 체�
 - [ ] 이미지 업로드 (공통 방식) — `POST /api/v1/admin/styles/image-upload-url`
 - [ ] 스타일에 매핑된 가구 (RAW 상품 검색) — `GET /api/v1/admin/styles/raw-products/search`
 
-### 9. 도면 관리
+### 9. 도면 관리 — ✅ 완료 (`/floor-plans`)
 
-- [ ] 목록 · 상세 — `GET /api/v1/admin/floor-plans`, `GET .../{floorPlanId}`
-- [ ] 등록 · 수정 · 삭제 — `POST /api/v1/admin/floor-plans`, `PATCH` · `DELETE .../{floorPlanId}`
-- [ ] 이미지 업로드 (공통 방식) — `POST /api/v1/admin/floor-plans/image-upload-url`
+- [x] 목록 — `GET /api/v1/admin/floor-plans` (수정 폼은 목록 데이터로 채움. 상세 `GET .../{floorPlanId}`는 쓰지 않음)
+- [x] 등록 · 수정 · 삭제 — `POST /api/v1/admin/floor-plans`, `PATCH` · `DELETE .../{floorPlanId}`
+- [x] 이미지 업로드 (공통 방식, 여러 장 · view · 순서) — `POST /api/v1/admin/floor-plans/image-upload-url`
+- SSR의 단일 필드 fallback(`form`·`structure`·`equilibrium`)은 옮기지 않음 — 현재 Swagger 응답에는 배열 필드만 있다
 
 ### 10. 회원 크레딧 추가
 

@@ -25,7 +25,14 @@ const SHORTER_ALIAS_TARGETS = [
 ];
 
 /** src/pages 바로 아래 화면 폴더. 서로 직접 import하지 않는다 */
-const PAGE_DIRS = ['banner', 'home', 'landing', 'login', 'notFound'];
+const PAGE_DIRS = [
+  'banner',
+  'floorPlan',
+  'home',
+  'landing',
+  'login',
+  'notFound',
+];
 
 /**
  * 화면끼리 직접 참조하면 한쪽을 고칠 때 다른 쪽이 함께 깨지고, 삭제할 때 무엇이 딸려 있는지 알 수 없다.
