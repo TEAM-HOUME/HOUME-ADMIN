@@ -7,4 +7,10 @@ export const queryKeys = {
     all: ['auth'] as const,
     check: () => [...queryKeys.auth.all, 'check'] as const,
   },
+  banner: {
+    all: ['banner'] as const,
+    list: () => [...queryKeys.banner.all, 'list'] as const,
+    rawProductSearch: (keyword: string, size: number) =>
+      [...queryKeys.banner.all, 'rawProductSearch', keyword, size] as const,
+  },
 } as const;

@@ -16,14 +16,14 @@ HOUME-SERVER의 SSR 어드민을 이 레포로 **전부** 옮기기 위한 체�
 
 ## 탭별 매핑
 
-### 0. 공통 — ✅ 완료
+### 0. 공통
 
 - [x] 로그인 — `POST /api/v1/admin/login`
 - [x] 토큰 확인(보호 라우트) — `GET /api/v1/admin/test`
 - [x] 세션 만료 처리 — 401 · 403 · `40002` · `40103` · `40104` → 로그인 화면
-- [ ] 이미지 업로드 훅 (아래 두 방식)
-  - 공통: `POST .../image-upload-url?contentType=` + `{ imageExtension }` → `uploadUrl`에 PUT (Authorization 헤더 없이) → 생성·수정 API에 `publicUrl` 전달 — 배너·랜딩·스타일·도면
-  - 예외: 등록 API 응답의 `presignedUrl`로 바로 PUT — 무드보드, 가구 프롬프트
+- [ ] 이미지 업로드 (아래 두 방식)
+  - [x] 공통 (`useImageUploadMutation`, `ImageUploadField`): `POST .../image-upload-url?contentType=` + `{ imageExtension }` → `uploadUrl`에 PUT (Authorization 헤더 없이) → 생성·수정 API에 `publicUrl` 전달 — 배너·랜딩·스타일·도면
+  - [ ] 예외: 등록 API 응답의 `presignedUrl`로 바로 PUT — 무드보드, 가구 프롬프트
 
 ### 1. 가구 관리
 
@@ -72,12 +72,12 @@ HOUME-SERVER의 SSR 어드민을 이 레포로 **전부** 옮기기 위한 체�
 - [ ] 등록 · 수정 · 삭제 — `POST /api/v1/admin/landings`, `PATCH` · `DELETE .../{landingId}`
 - [ ] 이미지 업로드 (공통 방식) — `POST /api/v1/admin/landings/image-upload-url`
 
-### 7. 배너 관리
+### 7. 배너 관리 — ✅ 완료 (`/banners`)
 
-- [ ] 목록 · 상세 — `GET /api/v1/admin/banners`, `GET .../{bannerId}`
-- [ ] 등록 · 수정 · 삭제 — `POST /api/v1/admin/banners`, `PATCH` · `DELETE .../{bannerId}`
-- [ ] 이미지 업로드 (공통 방식) — `POST /api/v1/admin/banners/image-upload-url`
-- [ ] 스타일 답변 칩, 배너에 매핑된 가구 (RAW 상품 검색) — `GET /api/v1/admin/banners/raw-products/search`
+- [x] 목록 — `GET /api/v1/admin/banners` (수정 폼은 SSR처럼 목록 데이터로 채움. 상세 `GET .../{bannerId}`는 쓰지 않음)
+- [x] 등록 · 수정 · 삭제 — `POST /api/v1/admin/banners`, `PATCH` · `DELETE .../{bannerId}`
+- [x] 이미지 업로드 (공통 방식) — `POST /api/v1/admin/banners/image-upload-url`
+- [x] 스타일 답변 칩, 배너에 매핑된 가구 (RAW 상품 검색) — `GET /api/v1/admin/banners/raw-products/search`
 
 ### 8. 스타일로 시작하기 관리
 
