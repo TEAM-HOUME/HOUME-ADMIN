@@ -1,0 +1,6 @@
+echo "🐕 Husky pre-commit 실행"
+
+pnpm lint-staged
+pnpm typecheck
+
+echo "🎉 린트·타입 검사 완료!"
