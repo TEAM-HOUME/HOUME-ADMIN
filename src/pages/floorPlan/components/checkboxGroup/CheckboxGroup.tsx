@@ -1,5 +1,3 @@
-import * as ui from '@styles/adminUi.css';
-
 import * as styles from './CheckboxGroup.css';
 
 import type { Option } from '../../utils/floorPlanForm';
@@ -26,8 +24,8 @@ function CheckboxGroup<T extends string>({
   };
 
   return (
-    <fieldset className={ui.field}>
-      <legend>{legend}</legend>
+    <fieldset className={styles.fieldset}>
+      <legend className={styles.legend}>{legend}</legend>
       <div className={styles.grid}>
         {options.map((option) => (
           <label key={option.value} className={styles.option}>

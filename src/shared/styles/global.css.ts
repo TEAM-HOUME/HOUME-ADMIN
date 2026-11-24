@@ -20,3 +20,31 @@ globalStyle('body', {
 globalStyle('button', {
   cursor: 'pointer',
 });
+
+/**
+ * reset의 `input, textarea, select { all: unset }`이 `* { box-sizing: border-box }`보다
+ * 구체적이라 box-sizing이 content-box로 돌아간다. 그러면 width 100% 입력칸이
+ * 패딩·테두리만큼 칸 밖으로 넘친다 → 어드민은 폼이 많으므로 다시 border-box로 둔다
+ */
+globalStyle('input, textarea, select', {
+  boxSizing: 'border-box',
+});
+
+/**
+ * 같은 `all: unset` 때문에 체크박스·라디오가 아예 그려지지 않는다.
+ * 브라우저 기본 모양으로 되돌린다 (revert)
+ */
+globalStyle('input[type="checkbox"], input[type="radio"]', {
+  all: 'revert',
+  margin: 0,
+  cursor: 'pointer',
+  width: '1.6rem',
+  height: '1.6rem',
+  accentColor: colorVars.color.fill.primary,
+});
+
+/** fieldset은 그룹 의미만 쓰고 브라우저 기본 테두리·최소 너비는 없앤다 */
+globalStyle('fieldset', {
+  border: 0,
+  minWidth: 0,
+});
