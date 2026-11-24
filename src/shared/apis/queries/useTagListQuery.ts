@@ -12,6 +12,7 @@ export const getTagList = () =>
     url: API_ENDPOINT.TAG.LIST,
   });
 
+/** 스타일 태그 목록 — 태그 관리 표와 무드보드 · 가구의 태그 선택에서 같이 쓴다 */
 export const useTagListQuery = () =>
   useQuery({
     queryKey: queryKeys.tag.list(),

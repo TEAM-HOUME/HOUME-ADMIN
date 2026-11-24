@@ -1,12 +1,12 @@
 import { useState } from 'react';
 
 import type { AdminTagGetResponseDTO } from '@apis/__generated__/data-contracts';
+import { useTagListQuery } from '@apis/queries/useTagListQuery';
 
 import * as ui from '@styles/adminUi.css';
 
 import { getApiErrorMessage } from '@utils/getApiErrorMessage';
 
-import { useTagListQuery } from './apis/queries/useTagListQuery';
 import TagCreateForm from './components/tagCreateForm/TagCreateForm';
 import TagTable from './components/tagTable/TagTable';
 import TagUpdateForm from './components/tagUpdateForm/TagUpdateForm';
