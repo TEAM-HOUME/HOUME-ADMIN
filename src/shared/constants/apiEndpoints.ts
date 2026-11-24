@@ -15,4 +15,9 @@ export const API_ENDPOINT = {
     DETAIL: (landingId: number) => `/api/v1/admin/landings/${landingId}`,
     IMAGE_UPLOAD_URL: '/api/v1/admin/landings/image-upload-url',
   },
+  FLOOR_PLAN: {
+    LIST: '/api/v1/admin/floor-plans',
+    DETAIL: (floorPlanId: number) => `/api/v1/admin/floor-plans/${floorPlanId}`,
+    IMAGE_UPLOAD_URL: '/api/v1/admin/floor-plans/image-upload-url',
+  },
 } as const;

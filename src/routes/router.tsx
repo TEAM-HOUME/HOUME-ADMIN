@@ -1,6 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom';
 
 import BannerPage from '@pages/banner/BannerPage';
+import FloorPlanPage from '@pages/floorPlan/FloorPlanPage';
 import HomePage from '@pages/home/HomePage';
 import LandingPage from '@pages/landing/LandingPage';
 import LoginPage from '@pages/login/LoginPage';
@@ -21,6 +22,7 @@ export const router = createBrowserRouter([
           { index: true, element: <HomePage /> },
           { path: ROUTES.BANNER, element: <BannerPage /> },
           { path: ROUTES.LANDING, element: <LandingPage /> },
+          { path: ROUTES.FLOOR_PLAN, element: <FloorPlanPage /> },
         ],
       },
     ],

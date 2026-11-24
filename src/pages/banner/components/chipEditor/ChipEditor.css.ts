@@ -20,6 +20,11 @@ export const title = style({
 
 export const row = style({
   display: 'grid',
-  gridTemplateColumns: '8rem minmax(0, 1fr) minmax(0, 2fr)',
+  gridTemplateColumns: '8rem minmax(0, 1fr)',
   gap: '1.2rem',
+});
+
+/** selected prompt는 길게 쓰는 칸이라 다음 줄에서 전체 너비를 쓴다 */
+export const fullRow = style({
+  gridColumn: '1 / -1',
 });

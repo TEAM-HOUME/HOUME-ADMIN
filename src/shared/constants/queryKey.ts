@@ -17,4 +17,8 @@ export const queryKeys = {
     all: ['landing'] as const,
     list: () => [...queryKeys.landing.all, 'list'] as const,
   },
+  floorPlan: {
+    all: ['floorPlan'] as const,
+    list: () => [...queryKeys.floorPlan.all, 'list'] as const,
+  },
 } as const;

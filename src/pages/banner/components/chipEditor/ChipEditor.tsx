@@ -42,7 +42,7 @@ function ChipEditor({ index, value, onChange }: ChipEditorProps) {
             placeholder="예: 모니터 받침대가 결합된 책상"
           />
         </label>
-        <label className={ui.field}>
+        <label className={`${ui.field} ${styles.fullRow}`}>
           selected prompt
           <textarea
             className={ui.textarea}
