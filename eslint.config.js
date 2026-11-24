@@ -32,6 +32,7 @@ const PAGE_DIRS = [
   'home',
   'landing',
   'login',
+  'moodboard',
   'notFound',
   'style',
   'tag',

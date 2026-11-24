@@ -23,7 +23,7 @@ HOUME-SERVER의 SSR 어드민을 이 레포로 **전부** 옮기기 위한 체�
 - [x] 세션 만료 처리 — 401 · 403 · `40002` · `40103` · `40104` → 로그인 화면
 - [ ] 이미지 업로드 (아래 두 방식)
   - [x] 공통 (`useImageUploadMutation`, `ImageUploadField`): `POST .../image-upload-url?contentType=` + `{ imageExtension }` → `uploadUrl`에 PUT (Authorization 헤더 없이) → 생성·수정 API에 `publicUrl` 전달 — 배너·랜딩·스타일·도면
-  - [ ] 예외: 등록 API 응답의 `presignedUrl`로 바로 PUT — 무드보드, 가구 프롬프트
+  - [ ] 예외: 등록 API 응답의 `presignedUrl`로 바로 PUT — 무드보드(✅), 가구 프롬프트
 
 ### 1. 가구 관리
 
@@ -52,11 +52,12 @@ HOUME-SERVER의 SSR 어드민을 이 레포로 **전부** 옮기기 위한 체�
 - [x] 생성 · 수정 · 삭제 — `POST` · `PATCH` · `DELETE /api/v1/admin/tag`
 - SSR과 다른 점: 목록의 '수정'으로 ID · 현재 값을 채우고 바뀐 항목만 보낸다 (ID 직접 입력 방식도 유지)
 
-### 4. 무드보드 관리
+### 4. 무드보드 관리 — ✅ 완료 (`/moodboards`)
 
-- [ ] 이미지 업로드 (presignedUrl 방식) — `POST /api/v1/admin/moodboard`
-- [ ] 전체 보기 — `GET /api/v1/admin/moodboards`
-- [ ] 삭제 — `DELETE /api/v1/admin/moodboard`
+- [x] 이미지 업로드 (presignedUrl 방식) — `POST /api/v1/admin/moodboard`
+- [x] 전체 보기 — `GET /api/v1/admin/moodboards`
+- [x] 삭제 — `DELETE /api/v1/admin/moodboard`
+- 서버가 POST 시점에 무드보드를 먼저 만들기 때문에 S3 PUT이 실패하면 이미지 없는 항목이 남는다 (SSR과 같은 구조) → 실패를 화면에 따로 알리고 목록을 다시 받는다
 
 ### 5. RAW 상품 관리 (큐레이션 원본 상품) — 가장 복잡
 

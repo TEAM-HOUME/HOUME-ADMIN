@@ -32,6 +32,10 @@ export const queryKeys = {
     all: ['tag'] as const,
     list: () => [...queryKeys.tag.all, 'list'] as const,
   },
+  moodboard: {
+    all: ['moodboard'] as const,
+    list: () => [...queryKeys.moodboard.all, 'list'] as const,
+  },
   member: {
     all: ['member'] as const,
     search: (keyword: string) =>

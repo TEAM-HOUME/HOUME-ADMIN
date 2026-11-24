@@ -6,6 +6,7 @@ import FloorPlanPage from '@pages/floorPlan/FloorPlanPage';
 import HomePage from '@pages/home/HomePage';
 import LandingPage from '@pages/landing/LandingPage';
 import LoginPage from '@pages/login/LoginPage';
+import MoodboardPage from '@pages/moodboard/MoodboardPage';
 import NotFoundPage from '@pages/notFound/NotFoundPage';
 import StylePage from '@pages/style/StylePage';
 import TagPage from '@pages/tag/TagPage';
@@ -29,6 +30,7 @@ export const router = createBrowserRouter([
           { path: ROUTES.STYLE, element: <StylePage /> },
           { path: ROUTES.CREDIT, element: <CreditPage /> },
           { path: ROUTES.TAG, element: <TagPage /> },
+          { path: ROUTES.MOODBOARD, element: <MoodboardPage /> },
         ],
       },
     ],

@@ -43,6 +43,12 @@ globalStyle('input[type="checkbox"], input[type="radio"]', {
   accentColor: colorVars.color.fill.primary,
 });
 
+/** 같은 이유로 select의 펼침 화살표가 사라진다 → 브라우저 기본 모양을 되살린다 */
+globalStyle('select', {
+  appearance: 'auto',
+  cursor: 'pointer',
+});
+
 /** fieldset은 그룹 의미만 쓰고 브라우저 기본 테두리·최소 너비는 없앤다 */
 globalStyle('fieldset', {
   border: 0,
