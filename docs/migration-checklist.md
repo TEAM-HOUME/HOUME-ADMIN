@@ -91,7 +91,7 @@ HOUME-SERVER의 SSR 어드민을 이 레포로 **전부** 옮기기 위한 체�
 - [x] 목록 — `GET /api/v1/admin/floor-plans` (수정 폼은 목록 데이터로 채움. 상세 `GET .../{floorPlanId}`는 쓰지 않음)
 - [x] 등록 · 수정 · 삭제 — `POST /api/v1/admin/floor-plans`, `PATCH` · `DELETE .../{floorPlanId}`
 - [x] 이미지 업로드 (공통 방식, 여러 장 · view · 순서) — `POST /api/v1/admin/floor-plans/image-upload-url`
-- SSR의 단일 필드 fallback(`form`·`structure`·`equilibrium`)은 옮기지 않음 — 현재 Swagger 응답에는 배열 필드만 있다
+- SSR의 단일 필드 fallback(`form`·`structure`·`equilibrium`)은 옮기지 않음 — 서버 `AdminFloorPlanServiceImpl.toResponse()`가 JSON 다중 매핑이 비어 있으면 단일 컬럼 값으로 배열을 채워 내려준다 (이미지도 같은 방식). 응답에 단일 필드는 없다
 
 ### 10. 회원 크레딧 추가
 
