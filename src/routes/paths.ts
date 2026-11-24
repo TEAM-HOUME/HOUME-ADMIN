@@ -7,6 +7,7 @@ export const ROUTES = {
   LANDING: '/landings',
   FLOOR_PLAN: '/floor-plans',
   STYLE: '/styles',
+  CREDIT: '/credits',
 } as const;
 
 export type RoutePath = (typeof ROUTES)[keyof typeof ROUTES];
