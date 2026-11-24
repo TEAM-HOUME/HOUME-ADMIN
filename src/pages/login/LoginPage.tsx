@@ -11,7 +11,7 @@ import {
 
 import { getApiErrorMessage } from '@utils/getApiErrorMessage';
 
-import { useAdminLoginMutation } from './apis/useAdminLoginMutation';
+import { useAdminLoginMutation } from './apis/mutations/useAdminLoginMutation';
 import * as styles from './LoginPage.css';
 
 interface LoginLocationState {

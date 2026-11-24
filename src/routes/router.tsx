@@ -1,5 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom';
 
+import BannerPage from '@pages/banner/BannerPage';
 import HomePage from '@pages/home/HomePage';
 import LoginPage from '@pages/login/LoginPage';
 import NotFoundPage from '@pages/notFound/NotFoundPage';
@@ -15,7 +16,10 @@ export const router = createBrowserRouter([
     children: [
       {
         element: <AdminLayout />,
-        children: [{ index: true, element: <HomePage /> }],
+        children: [
+          { index: true, element: <HomePage /> },
+          { path: ROUTES.BANNER, element: <BannerPage /> },
+        ],
       },
     ],
   },

@@ -4,4 +4,10 @@ export const API_ENDPOINT = {
     /** 어드민 토큰 유효성 확인용. 성공하면 문자열을 돌려준다 */
     AUTH_CHECK: '/api/v1/admin/test',
   },
+  BANNER: {
+    LIST: '/api/v1/admin/banners',
+    DETAIL: (bannerId: number) => `/api/v1/admin/banners/${bannerId}`,
+    IMAGE_UPLOAD_URL: '/api/v1/admin/banners/image-upload-url',
+    RAW_PRODUCT_SEARCH: '/api/v1/admin/banners/raw-products/search',
+  },
 } as const;
