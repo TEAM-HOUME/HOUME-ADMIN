@@ -3,7 +3,7 @@
 HOUME-SERVER의 SSR 어드민을 이 레포로 **전부** 옮기기 위한 체크리스트입니다. 화면 기준은 서버의 `houme-api/src/main/resources/templates/admin/dashboard.html`이고, API는 연동 가이드(Swagger 기준, PR #697 반영)를 따릅니다.
 
 - 기준 커밋: HOUME-SERVER `develop` `6663a32` (2026-11-24)
-- 대시보드 구조: 사이드바 탭 13개짜리 단일 페이지. 서버는 HTML만 내려주고, 데이터는 전부 JS가 JSON API를 직접 호출한다 → **SSR 전용 데이터는 없다**
+- 대시보드 구조: 사이드바 탭 13개짜리 단일 페이지. 그중 11~13(가격비교 검색 · 프리셋 관리 · Gemini 검색어 검증)은 `develop`에만 있고 운영(`prod`, v2.0.2 · 2026-08-12)에는 아직 배포되지 않은 기능이다 — 일단 구현해 두고, 서버 릴리스 후 운영에서 동작한다. 서버는 HTML만 내려주고, 데이터는 전부 JS가 JSON API를 직접 호출한다 → **SSR 전용 데이터는 없다**
 - 화면을 옮기면 체크하고, `src/routes/adminMenu.ts`의 해당 메뉴에 `path`를 채운다
 
 ## 옮기지 않는 것
@@ -93,10 +93,11 @@ HOUME-SERVER의 SSR 어드민을 이 레포로 **전부** 옮기기 위한 체�
 - [x] 이미지 업로드 (공통 방식, 여러 장 · view · 순서) — `POST /api/v1/admin/floor-plans/image-upload-url`
 - SSR의 단일 필드 fallback(`form`·`structure`·`equilibrium`)은 옮기지 않음 — 서버 `AdminFloorPlanServiceImpl.toResponse()`가 JSON 다중 매핑이 비어 있으면 단일 컬럼 값으로 배열을 채워 내려준다 (이미지도 같은 방식). 응답에 단일 필드는 없다
 
-### 10. 회원 크레딧 추가
+### 10. 회원 크레딧 추가 — ✅ 완료 (`/credits`)
 
-- [ ] 회원 검색 (이메일 완전일치 · 닉네임 부분검색) — `GET /api/v1/admin/members`
-- [ ] 크레딧 지급 — `POST /api/v1/admin/members/{memberId}/credits`
+- [x] 회원 검색 (이메일 완전일치 · 닉네임 부분검색) — `GET /api/v1/admin/members`
+- [x] 크레딧 지급 — `POST /api/v1/admin/members/{memberId}/credits`
+- SSR과 다른 점: 지급 전 확인창(대상 회원 · 개수)을 추가했다
 
 ### 11. 가격비교 검색 (의사결정용) — prefix가 `/api/admin/v1`로 다름
 

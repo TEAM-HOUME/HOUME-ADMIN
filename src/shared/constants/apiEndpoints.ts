@@ -26,4 +26,9 @@ export const API_ENDPOINT = {
     IMAGE_UPLOAD_URL: '/api/v1/admin/styles/image-upload-url',
     RAW_PRODUCT_SEARCH: '/api/v1/admin/styles/raw-products/search',
   },
+  MEMBER: {
+    /** 이메일 완전일치 또는 닉네임 부분검색 (?keyword=) */
+    SEARCH: '/api/v1/admin/members',
+    CREDITS: (memberId: number) => `/api/v1/admin/members/${memberId}/credits`,
+  },
 } as const;

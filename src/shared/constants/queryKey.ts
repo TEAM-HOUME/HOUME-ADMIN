@@ -28,4 +28,9 @@ export const queryKeys = {
     all: ['style'] as const,
     list: () => [...queryKeys.style.all, 'list'] as const,
   },
+  member: {
+    all: ['member'] as const,
+    search: (keyword: string) =>
+      [...queryKeys.member.all, 'search', keyword] as const,
+  },
 } as const;
