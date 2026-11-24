@@ -19,7 +19,7 @@ export const ADMIN_MENU: AdminMenuItem[] = [
   { label: 'RAW 상품 관리' },
   { label: '랜딩 관리', path: ROUTES.LANDING },
   { label: '배너 관리', path: ROUTES.BANNER },
-  { label: '스타일로 시작하기 관리' },
+  { label: '스타일로 시작하기 관리', path: ROUTES.STYLE },
   { label: '도면 관리', path: ROUTES.FLOOR_PLAN },
   { label: '회원 크레딧 추가' },
   { label: '가격비교 검색' },

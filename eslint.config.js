@@ -32,6 +32,7 @@ const PAGE_DIRS = [
   'landing',
   'login',
   'notFound',
+  'style',
 ];
 
 /**

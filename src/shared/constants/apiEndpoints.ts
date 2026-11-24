@@ -20,4 +20,10 @@ export const API_ENDPOINT = {
     DETAIL: (floorPlanId: number) => `/api/v1/admin/floor-plans/${floorPlanId}`,
     IMAGE_UPLOAD_URL: '/api/v1/admin/floor-plans/image-upload-url',
   },
+  STYLE: {
+    LIST: '/api/v1/admin/styles',
+    DETAIL: (styleId: number) => `/api/v1/admin/styles/${styleId}`,
+    IMAGE_UPLOAD_URL: '/api/v1/admin/styles/image-upload-url',
+    RAW_PRODUCT_SEARCH: '/api/v1/admin/styles/raw-products/search',
+  },
 } as const;

@@ -79,12 +79,12 @@ HOUME-SERVER의 SSR 어드민을 이 레포로 **전부** 옮기기 위한 체�
 - [x] 이미지 업로드 (공통 방식) — `POST /api/v1/admin/banners/image-upload-url`
 - [x] 스타일 답변 칩, 배너에 매핑된 가구 (RAW 상품 검색) — `GET /api/v1/admin/banners/raw-products/search`
 
-### 8. 스타일로 시작하기 관리
+### 8. 스타일로 시작하기 관리 — ✅ 완료 (`/styles`)
 
-- [ ] 목록 · 상세 — `GET /api/v1/admin/styles`, `GET .../{styleId}`
-- [ ] 등록 · 수정 · 삭제 — `POST /api/v1/admin/styles`, `PATCH` · `DELETE .../{styleId}`
-- [ ] 이미지 업로드 (공통 방식) — `POST /api/v1/admin/styles/image-upload-url`
-- [ ] 스타일에 매핑된 가구 (RAW 상품 검색) — `GET /api/v1/admin/styles/raw-products/search`
+- [x] 목록 — `GET /api/v1/admin/styles` (수정 폼은 목록 데이터로 채움. 상세 `GET .../{styleId}`는 쓰지 않음)
+- [x] 등록 · 수정 · 삭제 — `POST /api/v1/admin/styles`, `PATCH` · `DELETE .../{styleId}`
+- [x] 이미지 업로드 (공통 방식) — `POST /api/v1/admin/styles/image-upload-url`
+- [x] 스타일에 매핑된 가구 (RAW 상품 검색) — `GET /api/v1/admin/styles/raw-products/search`
 
 ### 9. 도면 관리 — ✅ 완료 (`/floor-plans`)
 
