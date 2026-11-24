@@ -1,15 +1,20 @@
 import { useState, type KeyboardEvent } from 'react';
 
+import type { RawProduct } from '@shared/types/rawProduct';
+
+import { useRawProductSearchQuery } from '@apis/queries/useRawProductSearchQuery';
+
 import * as ui from '@styles/adminUi.css';
 
 import { getApiErrorMessage } from '@utils/getApiErrorMessage';
+import { hasRawProductId } from '@utils/hasRawProductId';
 
 import * as styles from './RawProductSearch.css';
-import { useBannerRawProductSearchQuery } from '../../apis/queries/useBannerRawProductSearchQuery';
-import { hasRawProductId, type BannerRawProduct } from '../../utils/bannerForm';
 
 interface RawProductSearchProps {
   label: string;
+  /** 검색 API 경로 — 배너·스타일이 각자 경로를 쓴다 (API_ENDPOINT.*.RAW_PRODUCT_SEARCH) */
+  searchEndpoint: string;
   /** 한 번에 받아올 결과 수. SSR 기준 칩 8개, 매핑 가구 12개 */
   size: number;
   /** 이미 고른 상품 id. 결과에서 '선택됨'으로 비활성 처리한다 */
@@ -17,11 +22,13 @@ interface RawProductSearchProps {
   selectLabel?: string;
   /** 고른 뒤 결과 목록을 닫을지 (칩은 하나만 고르므로 닫는다) */
   closeOnSelect?: boolean;
-  onSelect: (product: BannerRawProduct) => void;
+  onSelect: (product: RawProduct) => void;
 }
 
+/** RAW 상품 검색 입력 + 결과 목록. 고른 상품은 onSelect로 넘긴다 */
 function RawProductSearch({
   label,
+  searchEndpoint,
   size,
   selectedIds = [],
   selectLabel = '선택',
@@ -35,7 +42,7 @@ function RawProductSearch({
     data: rawProducts,
     isFetching,
     error,
-  } = useBannerRawProductSearchQuery(submittedKeyword, size);
+  } = useRawProductSearchQuery(searchEndpoint, submittedKeyword, size);
 
   const search = () => {
     const trimmed = keyword.trim();
@@ -50,7 +57,7 @@ function RawProductSearch({
     search();
   };
 
-  const handleSelect = (product: BannerRawProduct) => {
+  const handleSelect = (product: RawProduct) => {
     onSelect(product);
     if (closeOnSelect) setSubmittedKeyword('');
   };

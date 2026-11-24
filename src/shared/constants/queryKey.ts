@@ -7,11 +7,14 @@ export const queryKeys = {
     all: ['auth'] as const,
     check: () => [...queryKeys.auth.all, 'check'] as const,
   },
+  rawProduct: {
+    all: ['rawProduct'] as const,
+    search: (endpoint: string, keyword: string, size: number) =>
+      [...queryKeys.rawProduct.all, 'search', endpoint, keyword, size] as const,
+  },
   banner: {
     all: ['banner'] as const,
     list: () => [...queryKeys.banner.all, 'list'] as const,
-    rawProductSearch: (keyword: string, size: number) =>
-      [...queryKeys.banner.all, 'rawProductSearch', keyword, size] as const,
   },
   landing: {
     all: ['landing'] as const,
@@ -20,5 +23,9 @@ export const queryKeys = {
   floorPlan: {
     all: ['floorPlan'] as const,
     list: () => [...queryKeys.floorPlan.all, 'list'] as const,
+  },
+  style: {
+    all: ['style'] as const,
+    list: () => [...queryKeys.style.all, 'list'] as const,
   },
 } as const;

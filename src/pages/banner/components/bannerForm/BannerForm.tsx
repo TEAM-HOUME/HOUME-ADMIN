@@ -5,6 +5,7 @@ import { toast } from 'sonner';
 import type { AdminBannerResponse } from '@apis/__generated__/data-contracts';
 
 import ImageUploadField from '@components/imageUploadField/ImageUploadField';
+import MappedRawProductPicker from '@components/mappedRawProductPicker/MappedRawProductPicker';
 
 import { API_ENDPOINT } from '@constants/apiEndpoints';
 
@@ -19,10 +20,8 @@ import {
   createEmptyBannerForm,
   type BannerChipFormValue,
   type BannerFormValues,
-  type BannerRawProduct,
 } from '../../utils/bannerForm';
 import ChipEditor from '../chipEditor/ChipEditor';
-import RawProductSearch from '../rawProductSearch/RawProductSearch';
 
 interface BannerFormProps {
   /** 수정 중인 배너. null이면 등록 모드 */
@@ -55,21 +54,6 @@ function BannerForm({ editingBanner, onReset }: BannerFormProps) {
     setValues((prev) => ({
       ...prev,
       chips: prev.chips.map((prevChip, i) => (i === index ? chip : prevChip)),
-    }));
-
-  const addMappedRawProduct = (product: BannerRawProduct) =>
-    setValues((prev) =>
-      prev.mappedRawProducts.some(({ id }) => id === product.id)
-        ? prev
-        : { ...prev, mappedRawProducts: [...prev.mappedRawProducts, product] }
-    );
-
-  const removeMappedRawProduct = (productId: number) =>
-    setValues((prev) => ({
-      ...prev,
-      mappedRawProducts: prev.mappedRawProducts.filter(
-        ({ id }) => id !== productId
-      ),
     }));
 
   /** 검증에 실패하면 메시지를 보여주고 null */
@@ -185,32 +169,12 @@ function BannerForm({ editingBanner, onReset }: BannerFormProps) {
 
       <section>
         <h3 className={ui.sectionTitle}>배너에 매핑된 가구</h3>
-        <RawProductSearch
-          label="RAW 상품 검색"
-          size={12}
-          selectLabel="추가"
-          selectedIds={values.mappedRawProducts.map(({ id }) => id)}
-          onSelect={addMappedRawProduct}
+        <MappedRawProductPicker
+          searchEndpoint={API_ENDPOINT.BANNER.RAW_PRODUCT_SEARCH}
+          value={values.mappedRawProducts}
+          onChange={(mappedRawProducts) => update({ mappedRawProducts })}
+          emptyText="아직 배너에 매핑된 가구가 없습니다."
         />
-        {values.mappedRawProducts.length > 0 ? (
-          <div className={styles.tagList}>
-            {values.mappedRawProducts.map((product) => (
-              <span key={product.id} className={ui.tag}>
-                {product.productName} (#{product.id})
-                <button
-                  className={ui.tagRemoveButton}
-                  type="button"
-                  aria-label="제거"
-                  onClick={() => removeMappedRawProduct(product.id)}
-                >
-                  ×
-                </button>
-              </span>
-            ))}
-          </div>
-        ) : (
-          <p className={ui.emptyText}>아직 배너에 매핑된 가구가 없습니다.</p>
-        )}
       </section>
 
       {validationError && (
