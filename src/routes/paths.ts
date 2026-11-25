@@ -8,6 +8,8 @@ export const ROUTES = {
   FLOOR_PLAN: '/floor-plans',
   STYLE: '/styles',
   CREDIT: '/credits',
+  TAG: '/tags',
+  MOODBOARD: '/moodboards',
 } as const;
 
 export type RoutePath = (typeof ROUTES)[keyof typeof ROUTES];

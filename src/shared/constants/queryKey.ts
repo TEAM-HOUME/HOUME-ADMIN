@@ -28,6 +28,14 @@ export const queryKeys = {
     all: ['style'] as const,
     list: () => [...queryKeys.style.all, 'list'] as const,
   },
+  tag: {
+    all: ['tag'] as const,
+    list: () => [...queryKeys.tag.all, 'list'] as const,
+  },
+  moodboard: {
+    all: ['moodboard'] as const,
+    list: () => [...queryKeys.moodboard.all, 'list'] as const,
+  },
   member: {
     all: ['member'] as const,
     search: (keyword: string) =>

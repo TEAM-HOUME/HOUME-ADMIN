@@ -36,6 +36,13 @@ export const cardBody = style({
   padding: '2rem',
 });
 
+/** 폼 안의 영역(입력칸 묶음 · 에러 · 버튼)을 세로로 띄운다 */
+export const formStack = style({
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '2.4rem',
+});
+
 export const sectionTitle = style({
   marginBottom: '1.2rem',
   ...fontVars.font.title_sb_15,
