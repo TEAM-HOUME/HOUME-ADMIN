@@ -34,13 +34,13 @@ HOUME-SERVER의 SSR 어드민을 이 레포로 **전부** 옮기기 위한 체�
 - [x] 가구 프롬프트 등록 (이미지 포함, presignedUrl 방식) — `POST /api/v1/admin/furniture/prompt`
 - [x] 프롬프트 조회 — `GET /api/v1/admin/furniture/prompt`
 - [x] 가구 태그 삭제 — `DELETE /api/v1/admin/furniture/tag`
-- 태그 드롭다운 — SSR은 `GET /api/v1/admin/furniture/tags`(배열 2개 형태)를 썼지만, 같은 태그 테이블이라 공용 `GET /api/v1/admin/tags`(우선순위 순)로 대체했다
+- [x] 태그 드롭다운 — `GET /api/v1/admin/furniture/tags` (SSR과 같음. id · 이름 배열을 같은 순서끼리 묶어 사용)
 - [x] [기획 의사결정용] 가구 제품 조회 — `GET /api/v1/generated-images/{tagId}/curations/products/{furnitureId}/for-plan`
 - [x] [기획 의사결정용 V2] mall/NPay 필터 — `GET .../for-plan/detail`
   - for-plan 2개는 가이드상 삭제 후보. 어드민 토큰으로 호출하면 `userName = null`
 - SSR과 다른 점
   - 목록의 태그 행 '수정'으로 수정 폼에 가구 이름 · 태그 · 키워드 · 우선순위를 채우고 현재 프롬프트를 보여준다
-  - 태그 ID를 직접 치던 칸(프롬프트 조회 · 정보 수정)을 태그 드롭다운으로 바꿨다
+  - 태그 ID를 직접 치던 칸(프롬프트 조회 · 정보 수정)을 태그 드롭다운(`/admin/furniture/tags`)으로 바꿨다
   - 프롬프트 등록 · 이미지 교체에서 S3 업로드만 실패한 경우를 따로 안내한다
 
 ### 2. 가구 타입 관리 — ✅ 완료 (`/furniture-types`)

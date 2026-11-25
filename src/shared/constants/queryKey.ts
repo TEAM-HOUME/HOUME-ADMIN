@@ -31,6 +31,7 @@ export const queryKeys = {
   furniture: {
     all: ['furniture'] as const,
     list: () => [...queryKeys.furniture.all, 'list'] as const,
+    tagOptions: () => [...queryKeys.furniture.all, 'tagOptions'] as const,
     prompt: (furnitureNameKr: string, tagId: number) =>
       [...queryKeys.furniture.all, 'prompt', furnitureNameKr, tagId] as const,
     forPlan: (params: object) =>

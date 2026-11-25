@@ -34,6 +34,8 @@ export const API_ENDPOINT = {
     PROMPT: '/api/v1/admin/furniture/prompt',
     /** 가구-태그 연결 삭제 (DELETE, body에 furnitureNameKr · tagId) */
     TAG: '/api/v1/admin/furniture/tag',
+    /** 가구 화면용 스타일 태그 선택지 ({ tagId[], tagNameKr[] }) */
+    TAG_OPTIONS: '/api/v1/admin/furniture/tags',
   },
   /** 기획 의사결정용 제품 조회 — 어드민 경로가 아니지만 어드민 토큰으로 호출 가능 (userName은 null) */
   FOR_PLAN: {
