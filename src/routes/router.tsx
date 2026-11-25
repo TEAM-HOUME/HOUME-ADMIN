@@ -10,6 +10,7 @@ import LandingPage from '@pages/landing/LandingPage';
 import LoginPage from '@pages/login/LoginPage';
 import MoodboardPage from '@pages/moodboard/MoodboardPage';
 import NotFoundPage from '@pages/notFound/NotFoundPage';
+import RawProductPage from '@pages/rawProduct/RawProductPage';
 import StylePage from '@pages/style/StylePage';
 import TagPage from '@pages/tag/TagPage';
 
@@ -35,6 +36,7 @@ export const router = createBrowserRouter([
           { path: ROUTES.MOODBOARD, element: <MoodboardPage /> },
           { path: ROUTES.FURNITURE_TYPE, element: <FurnitureTypePage /> },
           { path: ROUTES.FURNITURE, element: <FurniturePage /> },
+          { path: ROUTES.RAW_PRODUCT, element: <RawProductPage /> },
         ],
       },
     ],

@@ -39,6 +39,20 @@ export const queryKeys = {
   furnitureType: {
     all: ['furnitureType'] as const,
     list: () => [...queryKeys.furnitureType.all, 'list'] as const,
+    furnitures: (furnitureTypeId: number) =>
+      [...queryKeys.furnitureType.all, 'furnitures', furnitureTypeId] as const,
+    tags: (furnitureTypeId: number) =>
+      [...queryKeys.furnitureType.all, 'tags', furnitureTypeId] as const,
+  },
+  /** RAW 상품 관리(curation_raw_product). 배너·스타일의 RAW 상품 검색(rawProduct)과 별개 */
+  curationRawProduct: {
+    all: ['curationRawProduct'] as const,
+    list: (params: object) =>
+      [...queryKeys.curationRawProduct.all, 'list', params] as const,
+    detail: (rawProductId: number) =>
+      [...queryKeys.curationRawProduct.all, 'detail', rawProductId] as const,
+    colorOptions: () =>
+      [...queryKeys.curationRawProduct.all, 'colorOptions'] as const,
   },
   tag: {
     all: ['tag'] as const,

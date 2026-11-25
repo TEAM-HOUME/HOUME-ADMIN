@@ -12,6 +12,7 @@ export const ROUTES = {
   MOODBOARD: '/moodboards',
   FURNITURE_TYPE: '/furniture-types',
   FURNITURE: '/furnitures',
+  RAW_PRODUCT: '/raw-products',
 } as const;
 
 export type RoutePath = (typeof ROUTES)[keyof typeof ROUTES];

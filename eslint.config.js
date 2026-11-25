@@ -36,6 +36,7 @@ const PAGE_DIRS = [
   'login',
   'moodboard',
   'notFound',
+  'rawProduct',
   'style',
   'tag',
 ];

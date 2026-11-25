@@ -42,8 +42,25 @@ export const API_ENDPOINT = {
     V2: (tagId: number, furnitureId: number) =>
       `/api/v1/generated-images/${tagId}/curations/products/${furnitureId}/for-plan/detail`,
   },
+  RAW_PRODUCT: {
+    LIST: '/api/v1/admin/curation-raw-products',
+    DETAIL: (rawProductId: number) =>
+      `/api/v1/admin/curation-raw-products/${rawProductId}`,
+    COLOR_OPTIONS: '/api/v1/admin/curation-raw-products/color-options',
+    EXPOSURE: '/api/v1/admin/curation-raw-products/exposure',
+    MAPPINGS: (rawProductId: number) =>
+      `/api/v1/admin/curation-raw-products/${rawProductId}/furniture-tags`,
+    MAPPING: (rawProductId: number, mappingId: number) =>
+      `/api/v1/admin/curation-raw-products/${rawProductId}/furniture-tags/${mappingId}`,
+  },
   FURNITURE_TYPE: {
     LIST: '/api/v1/admin/furniture/types',
+    /** 타입별 하위 가구 (RAW 상품 하위가구 매핑에서 사용) */
+    FURNITURES: (furnitureTypeId: number) =>
+      `/api/v1/admin/furniture/types/${furnitureTypeId}/furnitures`,
+    /** 타입별 furniture_tag (RAW 상품 Furniture Tag 매핑에서 사용) */
+    TAGS: (furnitureTypeId: number) =>
+      `/api/v1/admin/furniture/types/${furnitureTypeId}/tags`,
     /** 등록(POST) · 수정(PATCH, body에 id) · 삭제(DELETE, body에 furnitureTypeId) 공용 경로 */
     ITEM: '/api/v1/admin/furniture/type',
   },
