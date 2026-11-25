@@ -1,6 +1,7 @@
 import type { BaseResponse } from '@shared/types/apis';
 
 import axiosInstance from './axiosInstance';
+import { nullToUndefined } from './nullToUndefined';
 
 import type { AxiosResponse } from 'axios';
 
@@ -57,5 +58,6 @@ export async function request<T>(
   });
 
   if (rawResponse) return response;
-  return response.data.data;
+  // 서버의 null을 생성 타입(optional = undefined)에 맞춘다 (nullToUndefined 주석 참고)
+  return nullToUndefined(response.data.data);
 }

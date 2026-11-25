@@ -17,6 +17,7 @@ import TagPage from '@pages/tag/TagPage';
 import AdminLayout from '@routes/AdminLayout';
 import { ROUTES } from '@routes/paths';
 import ProtectedRoute from '@routes/ProtectedRoute';
+import RouteErrorFallback from '@routes/RouteErrorFallback';
 
 export const router = createBrowserRouter([
   { path: ROUTES.LOGIN, element: <LoginPage /> },
@@ -26,17 +27,23 @@ export const router = createBrowserRouter([
       {
         element: <AdminLayout />,
         children: [
-          { index: true, element: <HomePage /> },
-          { path: ROUTES.BANNER, element: <BannerPage /> },
-          { path: ROUTES.LANDING, element: <LandingPage /> },
-          { path: ROUTES.FLOOR_PLAN, element: <FloorPlanPage /> },
-          { path: ROUTES.STYLE, element: <StylePage /> },
-          { path: ROUTES.CREDIT, element: <CreditPage /> },
-          { path: ROUTES.TAG, element: <TagPage /> },
-          { path: ROUTES.MOODBOARD, element: <MoodboardPage /> },
-          { path: ROUTES.FURNITURE_TYPE, element: <FurnitureTypePage /> },
-          { path: ROUTES.FURNITURE, element: <FurniturePage /> },
-          { path: ROUTES.RAW_PRODUCT, element: <RawProductPage /> },
+          {
+            // 각 화면에서 난 에러를 사이드바는 유지한 채 본문 자리에 보여준다
+            errorElement: <RouteErrorFallback />,
+            children: [
+              { index: true, element: <HomePage /> },
+              { path: ROUTES.BANNER, element: <BannerPage /> },
+              { path: ROUTES.LANDING, element: <LandingPage /> },
+              { path: ROUTES.FLOOR_PLAN, element: <FloorPlanPage /> },
+              { path: ROUTES.STYLE, element: <StylePage /> },
+              { path: ROUTES.CREDIT, element: <CreditPage /> },
+              { path: ROUTES.TAG, element: <TagPage /> },
+              { path: ROUTES.MOODBOARD, element: <MoodboardPage /> },
+              { path: ROUTES.FURNITURE_TYPE, element: <FurnitureTypePage /> },
+              { path: ROUTES.FURNITURE, element: <FurniturePage /> },
+              { path: ROUTES.RAW_PRODUCT, element: <RawProductPage /> },
+            ],
+          },
         ],
       },
     ],

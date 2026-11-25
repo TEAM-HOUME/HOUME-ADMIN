@@ -360,8 +360,8 @@ export const buildRawProductFilter = (values: RawProductFilterValues) => {
 
 /* ---------- 표시 ---------- */
 
-export const formatPrice = (value: number | undefined) =>
-  value === undefined ? '-' : value.toLocaleString('ko-KR');
+export const formatPrice = (value: number | null | undefined) =>
+  value === undefined || value === null ? '-' : value.toLocaleString('ko-KR');
 
 export const formatDateTime = (value: string | undefined) => {
   if (!value) return '-';
