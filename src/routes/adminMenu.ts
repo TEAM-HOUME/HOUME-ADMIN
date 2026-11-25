@@ -12,7 +12,7 @@ export interface AdminMenuItem {
  */
 export const ADMIN_MENU: AdminMenuItem[] = [
   { label: '홈', path: ROUTES.HOME },
-  { label: '가구 관리' },
+  { label: '가구 관리', path: ROUTES.FURNITURE },
   { label: '가구 타입 관리', path: ROUTES.FURNITURE_TYPE },
   { label: '태그 관리', path: ROUTES.TAG },
   { label: '무드보드 관리', path: ROUTES.MOODBOARD },

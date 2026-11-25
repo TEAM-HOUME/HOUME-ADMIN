@@ -11,6 +11,7 @@ export const ROUTES = {
   TAG: '/tags',
   MOODBOARD: '/moodboards',
   FURNITURE_TYPE: '/furniture-types',
+  FURNITURE: '/furnitures',
 } as const;
 
 export type RoutePath = (typeof ROUTES)[keyof typeof ROUTES];

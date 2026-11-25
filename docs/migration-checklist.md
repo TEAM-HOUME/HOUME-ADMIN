@@ -21,23 +21,27 @@ HOUME-SERVER의 SSR 어드민을 이 레포로 **전부** 옮기기 위한 체�
 - [x] 로그인 — `POST /api/v1/admin/login`
 - [x] 토큰 확인(보호 라우트) — `GET /api/v1/admin/test`
 - [x] 세션 만료 처리 — 401 · 403 · `40002` · `40103` · `40104` → 로그인 화면
-- [ ] 이미지 업로드 (아래 두 방식)
+- [x] 이미지 업로드 (아래 두 방식)
   - [x] 공통 (`useImageUploadMutation`, `ImageUploadField`): `POST .../image-upload-url?contentType=` + `{ imageExtension }` → `uploadUrl`에 PUT (Authorization 헤더 없이) → 생성·수정 API에 `publicUrl` 전달 — 배너·랜딩·스타일·도면
-  - [ ] 예외: 등록 API 응답의 `presignedUrl`로 바로 PUT — 무드보드(✅), 가구 프롬프트
+  - [x] 예외: 등록 API 응답의 `presignedUrl`로 바로 PUT — 무드보드, 가구 프롬프트 · 가구 이미지 교체
 
-### 1. 가구 관리
+### 1. 가구 관리 — ✅ 완료 (`/furnitures`)
 
-- [ ] 등록된 가구 목록 — `GET /api/v1/admin/furnitures`
-- [ ] 신규 가구 등록 — `POST /api/v1/admin/furniture`
-- [ ] 가구 정보 수정 — `PATCH /api/v1/admin/furniture`
-- [ ] 가구 삭제 — `DELETE /api/v1/admin/furniture`
-- [ ] 가구 프롬프트 등록 (이미지 포함, presignedUrl 방식) — `POST /api/v1/admin/furniture/prompt`
-- [ ] 프롬프트 조회 — `GET /api/v1/admin/furniture/prompt`
-- [ ] 가구 태그 삭제 — `DELETE /api/v1/admin/furniture/tag`
-- [ ] 태그 드롭다운 — `GET /api/v1/admin/furniture/tags`
-- [ ] [기획 의사결정용] 가구 제품 조회 — `GET /api/v1/generated-images/{tagId}/curations/products/{furnitureId}/for-plan`
-- [ ] [기획 의사결정용 V2] mall/NPay 필터 — `GET .../for-plan/detail`
+- [x] 등록된 가구 목록 — `GET /api/v1/admin/furnitures`
+- [x] 신규 가구 등록 — `POST /api/v1/admin/furniture`
+- [x] 가구 정보 수정 — `PATCH /api/v1/admin/furniture`
+- [x] 가구 삭제 — `DELETE /api/v1/admin/furniture`
+- [x] 가구 프롬프트 등록 (이미지 포함, presignedUrl 방식) — `POST /api/v1/admin/furniture/prompt`
+- [x] 프롬프트 조회 — `GET /api/v1/admin/furniture/prompt`
+- [x] 가구 태그 삭제 — `DELETE /api/v1/admin/furniture/tag`
+- 태그 드롭다운 — SSR은 `GET /api/v1/admin/furniture/tags`(배열 2개 형태)를 썼지만, 같은 태그 테이블이라 공용 `GET /api/v1/admin/tags`(우선순위 순)로 대체했다
+- [x] [기획 의사결정용] 가구 제품 조회 — `GET /api/v1/generated-images/{tagId}/curations/products/{furnitureId}/for-plan`
+- [x] [기획 의사결정용 V2] mall/NPay 필터 — `GET .../for-plan/detail`
   - for-plan 2개는 가이드상 삭제 후보. 어드민 토큰으로 호출하면 `userName = null`
+- SSR과 다른 점
+  - 목록의 태그 행 '수정'으로 수정 폼에 가구 이름 · 태그 · 키워드 · 우선순위를 채우고 현재 프롬프트를 보여준다
+  - 태그 ID를 직접 치던 칸(프롬프트 조회 · 정보 수정)을 태그 드롭다운으로 바꿨다
+  - 프롬프트 등록 · 이미지 교체에서 S3 업로드만 실패한 경우를 따로 안내한다
 
 ### 2. 가구 타입 관리 — ✅ 완료 (`/furniture-types`)
 
@@ -45,7 +49,7 @@ HOUME-SERVER의 SSR 어드민을 이 레포로 **전부** 옮기기 위한 체�
 - [x] 등록 · 수정 · 삭제 — `POST` · `PATCH` · `DELETE /api/v1/admin/furniture/type`
 - [ ] 타입별 하위 가구 — `GET /api/v1/admin/furniture/types/{furnitureTypeId}/furnitures`
 - [ ] 타입별 furniture_tag — `GET /api/v1/admin/furniture/types/{furnitureTypeId}/tags`
-- 타입별 하위 가구 · furniture_tag 조회는 가구 관리 화면에서 쓴다 (가구 관리 때 옮김)
+- 타입별 하위 가구 · furniture_tag 조회는 SSR에서 RAW 상품 관리 탭(가구 매핑)이 쓴다 → RAW 상품 관리 때 옮긴다
 - SSR과 다른 점: 목록의 '수정'으로 ID · 현재 값을 채우고 바뀐 이름만 보낸다 (ID 직접 입력도 유지)
 
 ### 3. 태그 관리 (스타일 태그) — ✅ 완료 (`/tags`)

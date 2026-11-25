@@ -3,6 +3,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import BannerPage from '@pages/banner/BannerPage';
 import CreditPage from '@pages/credit/CreditPage';
 import FloorPlanPage from '@pages/floorPlan/FloorPlanPage';
+import FurniturePage from '@pages/furniture/FurniturePage';
 import FurnitureTypePage from '@pages/furnitureType/FurnitureTypePage';
 import HomePage from '@pages/home/HomePage';
 import LandingPage from '@pages/landing/LandingPage';
@@ -33,6 +34,7 @@ export const router = createBrowserRouter([
           { path: ROUTES.TAG, element: <TagPage /> },
           { path: ROUTES.MOODBOARD, element: <MoodboardPage /> },
           { path: ROUTES.FURNITURE_TYPE, element: <FurnitureTypePage /> },
+          { path: ROUTES.FURNITURE, element: <FurniturePage /> },
         ],
       },
     ],

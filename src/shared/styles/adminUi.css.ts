@@ -103,6 +103,16 @@ export const errorText = style({
   color: colorVars.color.text.danger,
 });
 
+/** 읽기 전용 긴 텍스트(현재 프롬프트 등)를 보여주는 상자 */
+export const readonlyBox = style({
+  borderRadius: '0.8rem',
+  backgroundColor: colorVars.color.fill.weak,
+  ...fontVars.font.body_r_13,
+  padding: '1.2rem',
+  whiteSpace: 'pre-wrap',
+  color: colorVars.color.text.secondary,
+});
+
 export const emptyText = style({
   padding: '1.2rem 0',
   ...fontVars.font.body_r_13,
