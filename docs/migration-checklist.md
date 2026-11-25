@@ -39,12 +39,14 @@ HOUME-SERVER의 SSR 어드민을 이 레포로 **전부** 옮기기 위한 체�
 - [ ] [기획 의사결정용 V2] mall/NPay 필터 — `GET .../for-plan/detail`
   - for-plan 2개는 가이드상 삭제 후보. 어드민 토큰으로 호출하면 `userName = null`
 
-### 2. 가구 타입 관리
+### 2. 가구 타입 관리 — ✅ 완료 (`/furniture-types`)
 
-- [ ] 목록 — `GET /api/v1/admin/furniture/types`
-- [ ] 등록 · 수정 · 삭제 — `POST` · `PATCH` · `DELETE /api/v1/admin/furniture/type`
+- [x] 목록 — `GET /api/v1/admin/furniture/types`
+- [x] 등록 · 수정 · 삭제 — `POST` · `PATCH` · `DELETE /api/v1/admin/furniture/type`
 - [ ] 타입별 하위 가구 — `GET /api/v1/admin/furniture/types/{furnitureTypeId}/furnitures`
 - [ ] 타입별 furniture_tag — `GET /api/v1/admin/furniture/types/{furnitureTypeId}/tags`
+- 타입별 하위 가구 · furniture_tag 조회는 가구 관리 화면에서 쓴다 (가구 관리 때 옮김)
+- SSR과 다른 점: 목록의 '수정'으로 ID · 현재 값을 채우고 바뀐 이름만 보낸다 (ID 직접 입력도 유지)
 
 ### 3. 태그 관리 (스타일 태그) — ✅ 완료 (`/tags`)
 
@@ -124,3 +126,6 @@ HOUME-SERVER의 SSR 어드민을 이 레포로 **전부** 옮기기 위한 체�
 3. **for-plan 2개**(가구 관리 탭) — 삭제 후보라는데 옮길지
 4. **운영 도메인 CORS** — 배포 도메인이 정해지면 `SecurityConfig` `allowedOrigins`에 추가 요청
 5. **PR #697 CodeRabbit 미해결 리뷰** — `isAdminToken`이 만료 처리 `try` 밖에 있어, 만료 토큰이 `40002`가 아닌 다른 형태(5xx 등)로 올 수 있는지
+6. **가구 타입 수정 API 동작** (`AdminFurnitureServiceImpl.updateFurnitureType`) — 클라이언트에서 맞춰 두었지만 서버에서 고치는 게 맞아 보임
+   - 보낸 이름을 기존 값과 비교하지 않고 중복 검사해서, 안 바꾼 이름을 그대로 보내면 '중복' 에러가 난다
+   - `furnitureTypeNameEng`가 null이면 `toUpperCase()`에서 NPE가 난다 (빈 문자열은 괜찮음)

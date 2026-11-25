@@ -28,6 +28,10 @@ export const queryKeys = {
     all: ['style'] as const,
     list: () => [...queryKeys.style.all, 'list'] as const,
   },
+  furnitureType: {
+    all: ['furnitureType'] as const,
+    list: () => [...queryKeys.furnitureType.all, 'list'] as const,
+  },
   tag: {
     all: ['tag'] as const,
     list: () => [...queryKeys.tag.all, 'list'] as const,
