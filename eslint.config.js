@@ -29,6 +29,8 @@ const PAGE_DIRS = [
   'banner',
   'credit',
   'floorPlan',
+  'furniture',
+  'furnitureType',
   'home',
   'landing',
   'login',

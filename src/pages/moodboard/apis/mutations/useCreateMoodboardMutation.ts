@@ -10,6 +10,8 @@ import { putImageToPresignedUrl } from '@apis/mutations/useImageUploadMutation';
 import { API_ENDPOINT } from '@constants/apiEndpoints';
 import { queryKeys } from '@constants/queryKey';
 
+import { getFileExtension } from '@utils/getFileExtension';
+
 export const postMoodboard = (
   body: AdminMoodBoardCreateRequestDTO,
   contentType: string
@@ -49,9 +51,7 @@ export const createMoodboard = async ({
   originalFilename,
   tagId,
 }: CreateMoodboardParams) => {
-  const imageExtension = file.name.includes('.')
-    ? (file.name.split('.').pop() ?? '')
-    : '';
+  const imageExtension = getFileExtension(file);
   const { presignedUrl } = await postMoodboard(
     { imageExtension, originalFilename, tagId },
     file.type

@@ -28,6 +28,18 @@ export const queryKeys = {
     all: ['style'] as const,
     list: () => [...queryKeys.style.all, 'list'] as const,
   },
+  furniture: {
+    all: ['furniture'] as const,
+    list: () => [...queryKeys.furniture.all, 'list'] as const,
+    prompt: (furnitureNameKr: string, tagId: number) =>
+      [...queryKeys.furniture.all, 'prompt', furnitureNameKr, tagId] as const,
+    forPlan: (params: object) =>
+      [...queryKeys.furniture.all, 'forPlan', params] as const,
+  },
+  furnitureType: {
+    all: ['furnitureType'] as const,
+    list: () => [...queryKeys.furnitureType.all, 'list'] as const,
+  },
   tag: {
     all: ['tag'] as const,
     list: () => [...queryKeys.tag.all, 'list'] as const,
