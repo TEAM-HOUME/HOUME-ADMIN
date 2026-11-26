@@ -66,20 +66,30 @@ function CreditGrantForm({ member }: CreditGrantFormProps) {
           ? `선택된 회원: ${formatMemberLabel(member)}`
           : '위 목록에서 회원을 선택하세요.'}
       </p>
-      <label className={`${ui.field} ${styles.amountField}`}>
-        추가할 크레딧 개수
-        <input
-          className={ui.input}
-          type="number"
-          min={MIN_AMOUNT}
-          max={MAX_AMOUNT}
-          value={amount}
-          onChange={(e) => {
-            setAmount(e.target.value);
-            reset();
-          }}
-        />
-      </label>
+      {/* 개수 입력칸 오른쪽에 지급 버튼 */}
+      <div className={styles.amountRow}>
+        <label className={`${ui.field} ${styles.amountField}`}>
+          추가할 크레딧 개수
+          <input
+            className={ui.input}
+            type="number"
+            min={MIN_AMOUNT}
+            max={MAX_AMOUNT}
+            value={amount}
+            onChange={(e) => {
+              setAmount(e.target.value);
+              reset();
+            }}
+          />
+        </label>
+        <button
+          className={`${ui.button.primary} ${styles.submitButton}`}
+          type="submit"
+          disabled={!member || isPending}
+        >
+          {isPending ? '지급 중...' : '크레딧 지급'}
+        </button>
+      </div>
 
       {validationError && (
         <p className={ui.errorText} role="alert">
@@ -92,16 +102,6 @@ function CreditGrantForm({ member }: CreditGrantFormProps) {
           {grantResult.creditBalance}개
         </p>
       )}
-
-      <div className={ui.buttonRow}>
-        <button
-          className={ui.button.primary}
-          type="submit"
-          disabled={!member || isPending}
-        >
-          {isPending ? '지급 중...' : '크레딧 지급'}
-        </button>
-      </div>
     </form>
   );
 }
