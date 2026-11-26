@@ -23,9 +23,13 @@ export const card = style({
 });
 
 export const title = style({
-  ...fontVars.font.title_sb_20,
-  textAlign: 'center',
-  color: colorVars.color.text.primary,
+  display: 'flex',
+  justifyContent: 'center',
+});
+
+export const logoImage = style({
+  width: '4.8rem',
+  height: '4.8rem',
 });
 
 export const form = style({
@@ -60,6 +64,9 @@ export const errorText = style({
 });
 
 export const submitButton = style({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
   marginTop: '0.8rem',
   borderRadius: '0.8rem',
   backgroundColor: colorVars.color.fill.primary,
