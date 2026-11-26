@@ -125,19 +125,19 @@ function CompareSearchPage() {
         <section className={`${ui.card} ${styles.column}`}>
           <div className={ui.cardHeader}>텍스트 검색</div>
           <div className={`${ui.cardBody} ${styles.columnBody}`}>
-            <label className={ui.field}>
-              한글 상품명 *
-              <input
-                className={ui.input}
-                type="text"
-                placeholder="원목 4인 식탁"
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-              />
-            </label>
-            <div>
+            <div className={styles.inputRow}>
+              <label className={`${ui.field} ${styles.inputField}`}>
+                한글 상품명 *
+                <input
+                  className={ui.input}
+                  type="text"
+                  placeholder="원목 4인 식탁"
+                  value={title}
+                  onChange={(e) => setTitle(e.target.value)}
+                />
+              </label>
               <button
-                className={ui.button.primary}
+                className={`${ui.button.primary} ${styles.inputButton}`}
                 type="button"
                 onClick={handleTextSearch}
                 disabled={textSearch.isPending}

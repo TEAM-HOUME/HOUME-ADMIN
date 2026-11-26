@@ -5,6 +5,7 @@ import { fontVars } from '@styles/tokens/font.css';
 
 export const table = style({
   width: '100%',
+  tableLayout: 'fixed',
   borderCollapse: 'collapse',
   ...fontVars.font.body_r_14,
   color: colorVars.color.text.primary,
@@ -21,8 +22,18 @@ export const th = style({
 export const td = style({
   borderBottom: `1px solid ${colorVars.color.border.secondary}`,
   padding: '1rem 1.2rem',
-  verticalAlign: 'top',
+  overflowWrap: 'anywhere',
+  verticalAlign: 'middle',
 });
+
+export const colId = style({ width: '6rem' });
+
+export const colPriority = style({ width: '8rem' });
+
+export const colName = style({ width: '18%' });
+
+/** 수정 · 삭제 버튼 두 개가 한 줄에 들어가는 너비 */
+export const colActions = style({ width: '15rem' });
 
 export const selectedRow = style({
   backgroundColor: colorVars.color.fill.weak,
@@ -36,7 +47,6 @@ export const promptSummary = style({
 
 export const prompt = style({
   marginTop: '0.8rem',
-  maxWidth: '60rem',
   ...fontVars.font.body_r_13,
   whiteSpace: 'pre-wrap',
   color: colorVars.color.text.secondary,

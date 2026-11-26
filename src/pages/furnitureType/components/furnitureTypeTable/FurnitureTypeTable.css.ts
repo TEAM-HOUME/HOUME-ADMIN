@@ -21,7 +21,7 @@ export const th = style({
 export const td = style({
   borderBottom: `1px solid ${colorVars.color.border.secondary}`,
   padding: '1rem 1.2rem',
-  verticalAlign: 'top',
+  verticalAlign: 'middle',
 });
 
 export const selectedRow = style({

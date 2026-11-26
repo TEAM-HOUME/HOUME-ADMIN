@@ -23,10 +23,19 @@ export const sidebar = style({
 });
 
 export const logo = style({
+  display: 'flex',
+  alignItems: 'center',
+  gap: '0.8rem',
   marginBottom: '2.4rem',
   padding: '0 0.8rem',
   ...fontVars.font.title_sb_18,
   color: colorVars.color.text.primary,
+});
+
+export const logoImage = style({
+  flexShrink: 0,
+  width: '2.4rem',
+  height: '2.4rem',
 });
 
 export const menuList = style({

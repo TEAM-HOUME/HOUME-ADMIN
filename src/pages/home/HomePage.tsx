@@ -4,10 +4,8 @@ import * as styles from './HomePage.css';
 function HomePage() {
   return (
     <section>
-      <h2 className={styles.title}>HOUME 백오피스</h2>
-      <p className={styles.description}>
-        왼쪽 메뉴에서 관리할 항목을 선택하세요.
-      </p>
+      <h2 className={styles.title}>Houme 백오피스</h2>
+      <p className={styles.description}>자유롭게 구성해주세요.</p>
     </section>
   );
 }

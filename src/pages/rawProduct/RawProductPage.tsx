@@ -99,57 +99,59 @@ function RawProductPage() {
         </div>
       </section>
 
+      {/* 상품 상세 | 상품 ID로 바로 찾기 */}
       <div className={styles.workspace} id={WORKSPACE_ID}>
-        <div>
-          <section className={ui.card}>
-            <div className={ui.cardHeader}>
-              {selectedId !== null ? `상품 상세 (#${selectedId})` : '상품 상세'}
-            </div>
-            <div className={ui.cardBody}>{renderMain()}</div>
-          </section>
-          {loadedProduct && (
-            <section className={ui.card}>
-              <div className={ui.cardHeader}>선택 상품 정보 수정</div>
-              <div className={ui.cardBody}>
-                {/* 상세가 새로 오면(매핑 변경 · 저장 후) 폼도 서버 값으로 다시 채운다 */}
-                <RawProductUpdateForm
-                  key={`${loadedProduct.id}-${dataUpdatedAt}`}
-                  product={loadedProduct}
-                />
-              </div>
-            </section>
-          )}
-        </div>
+        <section className={ui.card}>
+          <div className={ui.cardHeader}>
+            {selectedId !== null ? `상품 상세 (#${selectedId})` : '상품 상세'}
+          </div>
+          <div className={ui.cardBody}>{renderMain()}</div>
+        </section>
+        <section className={ui.card}>
+          <div className={ui.cardHeader}>상품 ID로 바로 찾기</div>
+          <div className={ui.cardBody}>
+            <RawProductLookup onLookup={openDetail} />
+          </div>
+        </section>
+      </div>
 
-        <div>
+      {/* 상품을 고르면: 정보 수정 | 가구 태그 매핑 */}
+      {loadedProduct && (
+        <div className={styles.workspace}>
           <section className={ui.card}>
-            <div className={ui.cardHeader}>상품 ID로 바로 찾기</div>
+            <div className={ui.cardHeader}>선택 상품 정보 수정</div>
             <div className={ui.cardBody}>
-              <RawProductLookup onLookup={openDetail} />
+              {/* 상세가 새로 오면(매핑 변경 · 저장 후) 폼도 서버 값으로 다시 채운다 */}
+              <RawProductUpdateForm
+                key={`${loadedProduct.id}-${dataUpdatedAt}`}
+                product={loadedProduct}
+              />
             </div>
           </section>
-          {loadedProduct && (
-            <section className={ui.card}>
-              <div className={ui.cardHeader}>가구 태그 매핑</div>
-              <div className={ui.cardBody}>
-                <RawProductMappingPanel
-                  key={loadedProduct.id}
-                  product={loadedProduct}
-                />
-              </div>
-            </section>
-          )}
-          <section className={`${ui.card} ${styles.dangerCard}`}>
-            <div className={ui.cardHeader}>위험 구역 — RAW 상품 영구 삭제</div>
+          <section className={ui.card}>
+            <div className={ui.cardHeader}>가구 태그 매핑</div>
             <div className={ui.cardBody}>
-              <RawProductDangerZone
-                key={selectedId ?? 'none'}
-                defaultId={selectedId}
-                onDeleted={handleDeleted}
+              <RawProductMappingPanel
+                key={loadedProduct.id}
+                product={loadedProduct}
               />
             </div>
           </section>
         </div>
+      )}
+
+      {/* 맨 아래. 너비는 상품 상세 카드(왼쪽 열)와 같다 */}
+      <div className={styles.workspace}>
+        <section className={`${ui.card} ${styles.dangerCard}`}>
+          <div className={ui.cardHeader}>위험 구역 - RAW 상품 영구 삭제</div>
+          <div className={ui.cardBody}>
+            <RawProductDangerZone
+              key={selectedId ?? 'none'}
+              defaultId={selectedId}
+              onDeleted={handleDeleted}
+            />
+          </div>
+        </section>
       </div>
     </>
   );

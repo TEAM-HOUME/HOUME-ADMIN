@@ -53,7 +53,14 @@ function LoginPage() {
   return (
     <main className={styles.container}>
       <div className={styles.card}>
-        <h1 className={styles.title}>HOUME Admin</h1>
+        {/* 로고(파비콘과 같음)만 가운데에 둔다. 제목 글자는 alt로 남긴다 */}
+        <h1 className={styles.title}>
+          <img
+            className={styles.logoImage}
+            src="/favicon/favicon.svg"
+            alt="Houme Admin"
+          />
+        </h1>
         <form className={styles.form} onSubmit={handleSubmit}>
           <label className={styles.label}>
             아이디

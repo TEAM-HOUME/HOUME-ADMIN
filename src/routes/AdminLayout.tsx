@@ -21,7 +21,11 @@ function AdminLayout() {
   return (
     <div className={styles.layout}>
       <aside className={styles.sidebar}>
-        <p className={styles.logo}>HOUME Admin</p>
+        <p className={styles.logo}>
+          {/* 파비콘과 같은 로고 (public/favicon) */}
+          <img className={styles.logoImage} src="/favicon/favicon.svg" alt="" />
+          Houme Admin
+        </p>
         <nav className={styles.menuList}>
           {ADMIN_MENU.map(({ label, path }) =>
             path ? (
