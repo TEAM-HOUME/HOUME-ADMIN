@@ -123,7 +123,7 @@ function CompareSearchPage() {
 
       <div className={styles.columns}>
         <section className={`${ui.card} ${styles.column}`}>
-          <div className={ui.cardHeader}>📝 텍스트 검색</div>
+          <div className={ui.cardHeader}>텍스트 검색</div>
           <div className={`${ui.cardBody} ${styles.columnBody}`}>
             <label className={ui.field}>
               한글 상품명 *
@@ -154,7 +154,7 @@ function CompareSearchPage() {
         </section>
 
         <section className={`${ui.card} ${styles.column}`}>
-          <div className={ui.cardHeader}>🖼️ 이미지 검색</div>
+          <div className={ui.cardHeader}>이미지 검색</div>
           <div className={`${ui.cardBody} ${styles.columnBody}`}>
             <p className={ui.helperText}>
               이미지 URL → base64 → eBay 이미지 검색. 위 공통 파라미터의 이미지
