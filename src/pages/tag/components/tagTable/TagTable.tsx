@@ -42,6 +42,15 @@ function TagTable({ tags, selectedTagId, onEdit, onDeleted }: TagTableProps) {
 
   return (
     <table className={styles.table}>
+      {/* 열 너비를 고정해 프롬프트를 펼쳐도 다른 열이 움직이지 않게 한다 */}
+      <colgroup>
+        <col className={styles.colId} />
+        <col className={styles.colPriority} />
+        <col className={styles.colName} />
+        <col className={styles.colName} />
+        <col />
+        <col className={styles.colActions} />
+      </colgroup>
       <thead>
         <tr>
           <th className={styles.th}>ID</th>
