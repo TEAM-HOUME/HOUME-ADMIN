@@ -85,6 +85,8 @@ export const API_ENDPOINT = {
     EMBEDDING_TRIGGER: '/api/admin/v1/compare/curation-embedding/trigger',
     TEXT_SEARCH: '/api/admin/v1/compare/text-search',
     IMAGE_SEARCH: '/api/admin/v1/compare/image-search',
+    /** Gemini 검색어 검증 (한글 상품명 → eBay 영문 · 쿠팡 한글 키워드) */
+    KEYWORD_CHECK: '/api/admin/v1/compare/keyword-check',
     /** 프리셋 목록(GET) · 등록(POST) */
     PRESETS: '/api/admin/v1/compare/presets',
     /** 프리셋 수정(PUT) · 삭제(DELETE) */

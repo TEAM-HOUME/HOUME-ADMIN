@@ -34,6 +34,7 @@ const PAGE_DIRS = [
   'furniture',
   'furnitureType',
   'home',
+  'keywordCheck',
   'landing',
   'login',
   'moodboard',

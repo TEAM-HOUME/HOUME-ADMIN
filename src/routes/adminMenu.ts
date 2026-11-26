@@ -24,5 +24,5 @@ export const ADMIN_MENU: AdminMenuItem[] = [
   { label: '회원 크레딧 추가', path: ROUTES.CREDIT },
   { label: '가격비교 검색', path: ROUTES.COMPARE_SEARCH },
   { label: '프리셋 관리', path: ROUTES.COMPARE_PRESET },
-  { label: 'Gemini 검색어 검증' },
+  { label: '검색어 검증', path: ROUTES.KEYWORD_CHECK },
 ];
