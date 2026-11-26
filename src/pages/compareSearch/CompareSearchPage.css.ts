@@ -17,3 +17,20 @@ export const columnBody = style({
   flexDirection: 'column',
   gap: '1.6rem',
 });
+
+/** 입력칸 오른쪽에 실행 버튼 */
+export const inputRow = style({
+  display: 'flex',
+  alignItems: 'flex-end',
+  gap: '1.2rem',
+});
+
+export const inputField = style({
+  flex: 1,
+  minWidth: 0,
+});
+
+/** 입력칸 높이에 맞춘다 */
+export const inputButton = style({
+  padding: '1.1rem 1.6rem',
+});
