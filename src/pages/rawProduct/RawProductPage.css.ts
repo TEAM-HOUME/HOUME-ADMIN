@@ -17,5 +17,6 @@ export const workspace = style({
 });
 
 export const dangerCard = style({
+  borderWidth: '2px',
   borderColor: colorVars.color.red600,
 });
