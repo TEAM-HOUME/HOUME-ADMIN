@@ -112,20 +112,22 @@ HOUME-SERVER의 SSR 어드민을 이 레포로 **전부** 옮기기 위한 체�
 - [x] 크레딧 지급 — `POST /api/v1/admin/members/{memberId}/credits`
 - SSR과 다른 점: 지급 전 확인창(대상 회원 · 개수)을 추가했다
 
-### 11. 가격비교 검색 (의사결정용) — prefix가 `/api/admin/v1`로 다름 — ⏸ 보류 (운영 미배포 기능, 가격비교 출시 일정에 맞춰 진행)
+### 11. 가격비교 검색 (의사결정용) — prefix가 `/api/admin/v1`로 다름 — ✅ 완료 (`/compare-search`, develop SSR 기준)
 
-- [ ] 자체 카탈로그 임베딩 배치 — `POST /api/admin/v1/compare/curation-embedding/trigger?limit=`
-- [ ] 텍스트 검색 — `POST /api/admin/v1/compare/text-search`
-- [ ] 이미지 검색 — `POST /api/admin/v1/compare/image-search`
+- [x] 자체 카탈로그 임베딩 배치 — `POST /api/admin/v1/compare/curation-embedding/trigger?limit=` (202 시작 · 409 실행 중)
+- [x] 텍스트 검색 — `POST /api/admin/v1/compare/text-search`
+- [x] 이미지 검색 — `POST /api/admin/v1/compare/image-search`
+- 이미지 검색 생성 타입(`AdminImageSearchRequest`)에 `category`가 빠져 있지만 서버 DTO에는 있어서 SSR처럼 같이 보낸다
 
-### 12. 프리셋 관리 — ⏸ 보류 (운영 미배포 기능, 가격비교 출시 일정에 맞춰 진행)
+### 12. 프리셋 관리 — ✅ 완료 (`/compare-presets`, develop SSR 기준)
 
-- [ ] 목록 · 등록 · 수정 · 삭제 — `GET` · `POST /api/admin/v1/compare/presets`, `PUT` · `DELETE .../{presetId}`
-- [ ] 수정용 상세 조회 — `GET /api/v1/price-compare/presets/{presetId}` ⚠️ 아래 확인 필요 1
+- [x] 목록 · 등록 · 수정 · 삭제 — `GET` · `POST /api/admin/v1/compare/presets`, `PUT` · `DELETE .../{presetId}`
+- [x] 수정용 상세 조회 — `GET /api/v1/price-compare/presets/{presetId}` — SSR처럼 토큰 없이 부른다 (`PUBLIC_URL_PREFIXES`) ⚠️ 아래 확인 필요 1
+- 저장 결과는 SSR처럼 서버 응답 바디(JSON)를 폼 아래에 그대로 보여준다. 필수값 검사도 SSR처럼 서버(@Valid)에 맡긴다
 
-### 13. Gemini 검색어 검증 — ⏸ 보류 (운영 미배포 기능, 가격비교 출시 일정에 맞춰 진행)
+### 13. Gemini 검색어 검증 — ✅ 완료 (`/keyword-check`, develop SSR 기준. 메뉴 이름은 SSR처럼 '검색어 검증')
 
-- [ ] 검색어 변환 테스트 — `POST /api/admin/v1/compare/keyword-check`
+- [x] 검색어 변환 테스트 — `POST /api/admin/v1/compare/keyword-check`
 
 ## 서버 팀에 확인할 것
 

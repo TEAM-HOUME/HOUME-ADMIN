@@ -1,11 +1,14 @@
 import { createBrowserRouter } from 'react-router-dom';
 
 import BannerPage from '@pages/banner/BannerPage';
+import ComparePresetPage from '@pages/comparePreset/ComparePresetPage';
+import CompareSearchPage from '@pages/compareSearch/CompareSearchPage';
 import CreditPage from '@pages/credit/CreditPage';
 import FloorPlanPage from '@pages/floorPlan/FloorPlanPage';
 import FurniturePage from '@pages/furniture/FurniturePage';
 import FurnitureTypePage from '@pages/furnitureType/FurnitureTypePage';
 import HomePage from '@pages/home/HomePage';
+import KeywordCheckPage from '@pages/keywordCheck/KeywordCheckPage';
 import LandingPage from '@pages/landing/LandingPage';
 import LoginPage from '@pages/login/LoginPage';
 import MoodboardPage from '@pages/moodboard/MoodboardPage';
@@ -42,6 +45,9 @@ export const router = createBrowserRouter([
               { path: ROUTES.FURNITURE_TYPE, element: <FurnitureTypePage /> },
               { path: ROUTES.FURNITURE, element: <FurniturePage /> },
               { path: ROUTES.RAW_PRODUCT, element: <RawProductPage /> },
+              { path: ROUTES.COMPARE_SEARCH, element: <CompareSearchPage /> },
+              { path: ROUTES.COMPARE_PRESET, element: <ComparePresetPage /> },
+              { path: ROUTES.KEYWORD_CHECK, element: <KeywordCheckPage /> },
             ],
           },
         ],

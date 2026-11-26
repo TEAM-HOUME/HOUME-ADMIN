@@ -14,6 +14,14 @@ export const pageTitle = style({
   color: colorVars.color.text.primary,
 });
 
+/** 페이지 제목 아래 한 줄 설명 */
+export const pageDescription = style({
+  marginTop: '-1.6rem',
+  marginBottom: '2.4rem',
+  ...fontVars.font.body_r_14,
+  color: colorVars.color.text.tertiary,
+});
+
 export const card = style({
   marginBottom: '2.4rem',
   border: `1px solid ${colorVars.color.border.secondary}`,

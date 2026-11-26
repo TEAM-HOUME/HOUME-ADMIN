@@ -27,11 +27,14 @@ const SHORTER_ALIAS_TARGETS = [
 /** src/pages 바로 아래 화면 폴더. 서로 직접 import하지 않는다 */
 const PAGE_DIRS = [
   'banner',
+  'comparePreset',
+  'compareSearch',
   'credit',
   'floorPlan',
   'furniture',
   'furnitureType',
   'home',
+  'keywordCheck',
   'landing',
   'login',
   'moodboard',

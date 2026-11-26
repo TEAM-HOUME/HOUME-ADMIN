@@ -22,7 +22,7 @@ export const ADMIN_MENU: AdminMenuItem[] = [
   { label: '스타일로 시작하기 관리', path: ROUTES.STYLE },
   { label: '도면 관리', path: ROUTES.FLOOR_PLAN },
   { label: '회원 크레딧 추가', path: ROUTES.CREDIT },
-  { label: '가격비교 검색' },
-  { label: '프리셋 관리' },
-  { label: 'Gemini 검색어 검증' },
+  { label: '가격비교 검색', path: ROUTES.COMPARE_SEARCH },
+  { label: '프리셋 관리', path: ROUTES.COMPARE_PRESET },
+  { label: '검색어 검증', path: ROUTES.KEYWORD_CHECK },
 ];
