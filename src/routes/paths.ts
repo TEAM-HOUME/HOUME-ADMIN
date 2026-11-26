@@ -14,6 +14,7 @@ export const ROUTES = {
   FURNITURE: '/furnitures',
   RAW_PRODUCT: '/raw-products',
   COMPARE_SEARCH: '/compare-search',
+  COMPARE_PRESET: '/compare-presets',
 } as const;
 
 export type RoutePath = (typeof ROUTES)[keyof typeof ROUTES];

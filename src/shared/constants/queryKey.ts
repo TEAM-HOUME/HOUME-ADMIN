@@ -59,6 +59,12 @@ export const queryKeys = {
     all: ['tag'] as const,
     list: () => [...queryKeys.tag.all, 'list'] as const,
   },
+  comparePreset: {
+    all: ['comparePreset'] as const,
+    list: () => [...queryKeys.comparePreset.all, 'list'] as const,
+    detail: (presetId: number) =>
+      [...queryKeys.comparePreset.all, 'detail', presetId] as const,
+  },
   moodboard: {
     all: ['moodboard'] as const,
     list: () => [...queryKeys.moodboard.all, 'list'] as const,

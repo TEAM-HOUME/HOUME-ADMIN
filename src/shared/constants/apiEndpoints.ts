@@ -1,3 +1,6 @@
+/** 토큰 없이 부르는 공개 API의 경로 앞부분 */
+export const PUBLIC_URL_PREFIXES = ['/api/v1/price-compare/'];
+
 export const API_ENDPOINT = {
   ADMIN: {
     LOGIN: '/api/v1/admin/login',
@@ -82,6 +85,16 @@ export const API_ENDPOINT = {
     EMBEDDING_TRIGGER: '/api/admin/v1/compare/curation-embedding/trigger',
     TEXT_SEARCH: '/api/admin/v1/compare/text-search',
     IMAGE_SEARCH: '/api/admin/v1/compare/image-search',
+    /** 프리셋 목록(GET) · 등록(POST) */
+    PRESETS: '/api/admin/v1/compare/presets',
+    /** 프리셋 수정(PUT) · 삭제(DELETE) */
+    PRESET: (presetId: number) => `/api/admin/v1/compare/presets/${presetId}`,
+    /**
+     * 프리셋 상세 — 어드민 API가 아니라 가격비교 홈용 공개 API (permitAll).
+     * SSR처럼 토큰 없이 부른다 (axiosInstance의 PUBLIC_URL_PREFIXES)
+     */
+    PRESET_DETAIL: (presetId: number) =>
+      `/api/v1/price-compare/presets/${presetId}`,
   },
   MEMBER: {
     /** 이메일 완전일치 또는 닉네임 부분검색 (?keyword=) */

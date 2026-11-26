@@ -2,7 +2,7 @@ import axios, { AxiosError } from 'axios';
 
 import type { BaseResponse } from '@shared/types/apis';
 
-import { API_ENDPOINT } from '@constants/apiEndpoints';
+import { API_ENDPOINT, PUBLIC_URL_PREFIXES } from '@constants/apiEndpoints';
 import { SESSION_INVALID_CODES } from '@constants/apiErrorCode';
 
 import { clearAdminSession, getAdminAccessToken } from './adminSession';
@@ -26,7 +26,10 @@ const axiosInstance = axios.create({
 const EXCLUDE_AUTH_URLS: string[] = [API_ENDPOINT.ADMIN.LOGIN];
 
 axiosInstance.interceptors.request.use((config) => {
-  const isExcluded = EXCLUDE_AUTH_URLS.includes(config.url ?? '');
+  const url = config.url ?? '';
+  const isExcluded =
+    EXCLUDE_AUTH_URLS.includes(url) ||
+    PUBLIC_URL_PREFIXES.some((prefix) => url.startsWith(prefix));
   const accessToken = getAdminAccessToken();
 
   if (!isExcluded && accessToken) {

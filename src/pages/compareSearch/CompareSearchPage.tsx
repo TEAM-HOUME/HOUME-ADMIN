@@ -102,7 +102,7 @@ function CompareSearchPage() {
   return (
     <>
       <h2 className={ui.pageTitle}>가격비교 검색 (의사결정용)</h2>
-      <p className={styles.description}>
+      <p className={ui.pageDescription}>
         텍스트 검색과 이미지 검색 각각의 결과를 비교해 파이프라인 로직을
         결정합니다.
       </p>
