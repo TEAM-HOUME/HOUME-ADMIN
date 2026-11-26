@@ -145,8 +145,16 @@ function FurnitureTable({
           const tags = furniture.tags ?? [];
           return (
             <tr key={furniture.furnitureId}>
-              <td className={styles.td}>{furniture.furnitureId}</td>
-              <td className={styles.td}>{nameKr}</td>
+              <td className={styles.td}>
+                <div className={`${styles.firstRowCell} ${styles.textCell}`}>
+                  {furniture.furnitureId}
+                </div>
+              </td>
+              <td className={styles.td}>
+                <div className={`${styles.firstRowCell} ${styles.textCell}`}>
+                  {nameKr}
+                </div>
+              </td>
               <td className={styles.td}>
                 {tags.length > 0 ? (
                   <ul className={styles.tagList}>
@@ -157,14 +165,16 @@ function FurnitureTable({
                 )}
               </td>
               <td className={styles.td}>
-                <button
-                  className={ui.button.danger}
-                  type="button"
-                  disabled={!nameKr || isDeletingFurniture}
-                  onClick={() => handleDeleteFurniture(nameKr)}
-                >
-                  가구 삭제
-                </button>
+                <div className={`${styles.firstRowCell} ${styles.actionCell}`}>
+                  <button
+                    className={ui.button.danger}
+                    type="button"
+                    disabled={!nameKr || isDeletingFurniture}
+                    onClick={() => handleDeleteFurniture(nameKr)}
+                  >
+                    가구 삭제
+                  </button>
+                </div>
               </td>
             </tr>
           );
