@@ -34,22 +34,22 @@ HOUME-SERVER의 SSR 어드민을 이 레포로 **전부** 옮기기 위한 체�
 - [x] 가구 프롬프트 등록 (이미지 포함, presignedUrl 방식) — `POST /api/v1/admin/furniture/prompt`
 - [x] 프롬프트 조회 — `GET /api/v1/admin/furniture/prompt`
 - [x] 가구 태그 삭제 — `DELETE /api/v1/admin/furniture/tag`
-- 태그 드롭다운 — SSR은 `GET /api/v1/admin/furniture/tags`(배열 2개 형태)를 썼지만, 같은 태그 테이블이라 공용 `GET /api/v1/admin/tags`(우선순위 순)로 대체했다
+- [x] 태그 드롭다운 — `GET /api/v1/admin/furniture/tags` (SSR과 같음. id · 이름 배열을 같은 순서끼리 묶어 사용)
 - [x] [기획 의사결정용] 가구 제품 조회 — `GET /api/v1/generated-images/{tagId}/curations/products/{furnitureId}/for-plan`
 - [x] [기획 의사결정용 V2] mall/NPay 필터 — `GET .../for-plan/detail`
   - for-plan 2개는 가이드상 삭제 후보. 어드민 토큰으로 호출하면 `userName = null`
 - SSR과 다른 점
   - 목록의 태그 행 '수정'으로 수정 폼에 가구 이름 · 태그 · 키워드 · 우선순위를 채우고 현재 프롬프트를 보여준다
-  - 태그 ID를 직접 치던 칸(프롬프트 조회 · 정보 수정)을 태그 드롭다운으로 바꿨다
+  - 태그 ID를 직접 치던 칸(프롬프트 조회 · 정보 수정)을 태그 드롭다운(`/admin/furniture/tags`)으로 바꿨다
   - 프롬프트 등록 · 이미지 교체에서 S3 업로드만 실패한 경우를 따로 안내한다
 
 ### 2. 가구 타입 관리 — ✅ 완료 (`/furniture-types`)
 
 - [x] 목록 — `GET /api/v1/admin/furniture/types`
 - [x] 등록 · 수정 · 삭제 — `POST` · `PATCH` · `DELETE /api/v1/admin/furniture/type`
-- [ ] 타입별 하위 가구 — `GET /api/v1/admin/furniture/types/{furnitureTypeId}/furnitures`
-- [ ] 타입별 furniture_tag — `GET /api/v1/admin/furniture/types/{furnitureTypeId}/tags`
-- 타입별 하위 가구 · furniture_tag 조회는 SSR에서 RAW 상품 관리 탭(가구 매핑)이 쓴다 → RAW 상품 관리 때 옮긴다
+- [x] 타입별 하위 가구 — `GET /api/v1/admin/furniture/types/{furnitureTypeId}/furnitures`
+- [x] 타입별 furniture_tag — `GET /api/v1/admin/furniture/types/{furnitureTypeId}/tags`
+- 타입별 하위 가구 · furniture_tag 조회는 SSR에서 RAW 상품 관리 탭(가구 매핑)이 쓴다 → RAW 상품 관리에서 옮김
 - SSR과 다른 점: 목록의 '수정'으로 ID · 현재 값을 채우고 바뀐 이름만 보낸다 (ID 직접 입력도 유지)
 
 ### 3. 태그 관리 (스타일 태그) — ✅ 완료 (`/tags`)
@@ -65,14 +65,19 @@ HOUME-SERVER의 SSR 어드민을 이 레포로 **전부** 옮기기 위한 체�
 - [x] 삭제 — `DELETE /api/v1/admin/moodboard`
 - 서버가 POST 시점에 무드보드를 먼저 만들기 때문에 S3 PUT이 실패하면 이미지 없는 항목이 남는다 (SSR과 같은 구조) → 실패를 화면에 따로 알리고 목록을 다시 받는다
 
-### 5. RAW 상품 관리 (큐레이션 원본 상품) — 가장 복잡
+### 5. RAW 상품 관리 (큐레이션 원본 상품) — ✅ 완료 (`/raw-products`)
 
-- [ ] 목록 · 필터 — `GET /api/v1/admin/curation-raw-products`
-- [ ] 상세 — `GET /api/v1/admin/curation-raw-products/{id}`
-- [ ] 추가 · 수정 · 삭제 — `POST /api/v1/admin/curation-raw-products`, `PATCH` · `DELETE .../{id}`
-- [ ] 노출 여부 일괄 수정 — `PATCH /api/v1/admin/curation-raw-products/exposure`
-- [ ] 색상 옵션 — `GET /api/v1/admin/curation-raw-products/color-options`
-- [ ] 가구 매핑 추가 · 교체 · 삭제 — `POST .../{id}/furniture-tags`, `PATCH` · `DELETE .../{id}/furniture-tags/{mappingId}`
+- [x] 목록 · 필터 — `GET /api/v1/admin/curation-raw-products`
+- [x] 상세 — `GET /api/v1/admin/curation-raw-products/{id}`
+- [x] 추가 · 수정 · 삭제 — `POST /api/v1/admin/curation-raw-products`, `PATCH` · `DELETE .../{id}`
+- [x] 노출 여부 일괄 수정 — `PATCH /api/v1/admin/curation-raw-products/exposure`
+- [x] 색상 옵션 — `GET /api/v1/admin/curation-raw-products/color-options`
+- [x] 가구 매핑 추가 · 교체 · 삭제 — `POST .../{id}/furniture-tags`, `PATCH` · `DELETE .../{id}/furniture-tags/{mappingId}`
+- [x] 하위가구 · Furniture Tag 선택지 — `GET /api/v1/admin/furniture/types/{id}/furnitures` · `.../{id}/tags` (가구 타입 관리 항목에서 넘어옴)
+- SSR과 다른 점
+  - 하위가구 · Furniture Tag를 드롭다운에서 고르면 바로 추가 (SSR: 자동완성 입력 + '추가', 누르지 않으면 제출 때 자동 추가)
+  - 정보 수정에서 '수정 반영'을 켠 채 비워 저장하면(전부 삭제) 확인창을 띄움
+  - 목록을 화면 진입 시 바로 불러옴 (SSR: '조회'를 눌러야 불러옴)
 
 ### 6. 랜딩 관리 — ✅ 완료 (`/landings`)
 
@@ -107,18 +112,18 @@ HOUME-SERVER의 SSR 어드민을 이 레포로 **전부** 옮기기 위한 체�
 - [x] 크레딧 지급 — `POST /api/v1/admin/members/{memberId}/credits`
 - SSR과 다른 점: 지급 전 확인창(대상 회원 · 개수)을 추가했다
 
-### 11. 가격비교 검색 (의사결정용) — prefix가 `/api/admin/v1`로 다름
+### 11. 가격비교 검색 (의사결정용) — prefix가 `/api/admin/v1`로 다름 — ⏸ 보류 (운영 미배포 기능, 가격비교 출시 일정에 맞춰 진행)
 
 - [ ] 자체 카탈로그 임베딩 배치 — `POST /api/admin/v1/compare/curation-embedding/trigger?limit=`
 - [ ] 텍스트 검색 — `POST /api/admin/v1/compare/text-search`
 - [ ] 이미지 검색 — `POST /api/admin/v1/compare/image-search`
 
-### 12. 프리셋 관리
+### 12. 프리셋 관리 — ⏸ 보류 (운영 미배포 기능, 가격비교 출시 일정에 맞춰 진행)
 
 - [ ] 목록 · 등록 · 수정 · 삭제 — `GET` · `POST /api/admin/v1/compare/presets`, `PUT` · `DELETE .../{presetId}`
 - [ ] 수정용 상세 조회 — `GET /api/v1/price-compare/presets/{presetId}` ⚠️ 아래 확인 필요 1
 
-### 13. Gemini 검색어 검증
+### 13. Gemini 검색어 검증 — ⏸ 보류 (운영 미배포 기능, 가격비교 출시 일정에 맞춰 진행)
 
 - [ ] 검색어 변환 테스트 — `POST /api/admin/v1/compare/keyword-check`
 

@@ -34,6 +34,8 @@ export const API_ENDPOINT = {
     PROMPT: '/api/v1/admin/furniture/prompt',
     /** 가구-태그 연결 삭제 (DELETE, body에 furnitureNameKr · tagId) */
     TAG: '/api/v1/admin/furniture/tag',
+    /** 가구 화면용 스타일 태그 선택지 ({ tagId[], tagNameKr[] }) */
+    TAG_OPTIONS: '/api/v1/admin/furniture/tags',
   },
   /** 기획 의사결정용 제품 조회 — 어드민 경로가 아니지만 어드민 토큰으로 호출 가능 (userName은 null) */
   FOR_PLAN: {
@@ -42,8 +44,25 @@ export const API_ENDPOINT = {
     V2: (tagId: number, furnitureId: number) =>
       `/api/v1/generated-images/${tagId}/curations/products/${furnitureId}/for-plan/detail`,
   },
+  RAW_PRODUCT: {
+    LIST: '/api/v1/admin/curation-raw-products',
+    DETAIL: (rawProductId: number) =>
+      `/api/v1/admin/curation-raw-products/${rawProductId}`,
+    COLOR_OPTIONS: '/api/v1/admin/curation-raw-products/color-options',
+    EXPOSURE: '/api/v1/admin/curation-raw-products/exposure',
+    MAPPINGS: (rawProductId: number) =>
+      `/api/v1/admin/curation-raw-products/${rawProductId}/furniture-tags`,
+    MAPPING: (rawProductId: number, mappingId: number) =>
+      `/api/v1/admin/curation-raw-products/${rawProductId}/furniture-tags/${mappingId}`,
+  },
   FURNITURE_TYPE: {
     LIST: '/api/v1/admin/furniture/types',
+    /** 타입별 하위 가구 (RAW 상품 하위가구 매핑에서 사용) */
+    FURNITURES: (furnitureTypeId: number) =>
+      `/api/v1/admin/furniture/types/${furnitureTypeId}/furnitures`,
+    /** 타입별 furniture_tag (RAW 상품 Furniture Tag 매핑에서 사용) */
+    TAGS: (furnitureTypeId: number) =>
+      `/api/v1/admin/furniture/types/${furnitureTypeId}/tags`,
     /** 등록(POST) · 수정(PATCH, body에 id) · 삭제(DELETE, body에 furnitureTypeId) 공용 경로 */
     ITEM: '/api/v1/admin/furniture/type',
   },
