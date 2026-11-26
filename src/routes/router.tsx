@@ -1,6 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom';
 
 import BannerPage from '@pages/banner/BannerPage';
+import CompareSearchPage from '@pages/compareSearch/CompareSearchPage';
 import CreditPage from '@pages/credit/CreditPage';
 import FloorPlanPage from '@pages/floorPlan/FloorPlanPage';
 import FurniturePage from '@pages/furniture/FurniturePage';
@@ -42,6 +43,7 @@ export const router = createBrowserRouter([
               { path: ROUTES.FURNITURE_TYPE, element: <FurnitureTypePage /> },
               { path: ROUTES.FURNITURE, element: <FurniturePage /> },
               { path: ROUTES.RAW_PRODUCT, element: <RawProductPage /> },
+              { path: ROUTES.COMPARE_SEARCH, element: <CompareSearchPage /> },
             ],
           },
         ],

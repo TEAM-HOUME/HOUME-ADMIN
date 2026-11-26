@@ -112,11 +112,12 @@ HOUME-SERVER의 SSR 어드민을 이 레포로 **전부** 옮기기 위한 체�
 - [x] 크레딧 지급 — `POST /api/v1/admin/members/{memberId}/credits`
 - SSR과 다른 점: 지급 전 확인창(대상 회원 · 개수)을 추가했다
 
-### 11. 가격비교 검색 (의사결정용) — prefix가 `/api/admin/v1`로 다름 — ⏸ 보류 (운영 미배포 기능, 가격비교 출시 일정에 맞춰 진행)
+### 11. 가격비교 검색 (의사결정용) — prefix가 `/api/admin/v1`로 다름 — ✅ 완료 (`/compare-search`, develop SSR 기준)
 
-- [ ] 자체 카탈로그 임베딩 배치 — `POST /api/admin/v1/compare/curation-embedding/trigger?limit=`
-- [ ] 텍스트 검색 — `POST /api/admin/v1/compare/text-search`
-- [ ] 이미지 검색 — `POST /api/admin/v1/compare/image-search`
+- [x] 자체 카탈로그 임베딩 배치 — `POST /api/admin/v1/compare/curation-embedding/trigger?limit=` (202 시작 · 409 실행 중)
+- [x] 텍스트 검색 — `POST /api/admin/v1/compare/text-search`
+- [x] 이미지 검색 — `POST /api/admin/v1/compare/image-search`
+- 이미지 검색 생성 타입(`AdminImageSearchRequest`)에 `category`가 빠져 있지만 서버 DTO에는 있어서 SSR처럼 같이 보낸다
 
 ### 12. 프리셋 관리 — ⏸ 보류 (운영 미배포 기능, 가격비교 출시 일정에 맞춰 진행)
 

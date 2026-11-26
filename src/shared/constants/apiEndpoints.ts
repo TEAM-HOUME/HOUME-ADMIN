@@ -76,6 +76,13 @@ export const API_ENDPOINT = {
     /** 등록(POST ?contentType=, presignedUrl 반환) · 삭제(DELETE ?filename=) 공용 경로 */
     ITEM: '/api/v1/admin/moodboard',
   },
+  /** 가격비교 어드민 API — prefix가 `/api/admin/v1`로 다른 어드민 API와 다르다 */
+  COMPARE: {
+    /** 자체 카탈로그 임베딩 배치 (?limit=, 202 시작 · 409 실행 중) */
+    EMBEDDING_TRIGGER: '/api/admin/v1/compare/curation-embedding/trigger',
+    TEXT_SEARCH: '/api/admin/v1/compare/text-search',
+    IMAGE_SEARCH: '/api/admin/v1/compare/image-search',
+  },
   MEMBER: {
     /** 이메일 완전일치 또는 닉네임 부분검색 (?keyword=) */
     SEARCH: '/api/v1/admin/members',
